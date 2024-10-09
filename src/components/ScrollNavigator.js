@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useContext } from 'react';
+import { useEffect, useState, useCallback, useContext, useRef } from 'react';
 import { SectionContext } from '../context/SectionContext';
 import transitionImage from '../assets/file-rIQPEjtGRYtlrryt1B3BTjxX.png';
 
@@ -13,11 +13,14 @@ const ScrollNavigator = () => {
   const [scrollEnabled, setScrollEnabled] = useState(true);
   const [isMiddleClickActive, setIsMiddleClickActive] = useState(false);
 
+  // Refs para almacenar las coordenadas de toque en dispositivos móviles
+  const touchStartY = useRef(0);
+  const touchEndY = useRef(0);
+
   useEffect(() => {
     setActiveSection(sections[currentSection]);
   }, [currentSection, setActiveSection]);
 
-  // Aplica el efecto de zoom en la sección actual
   const applyZoomEffect = useCallback(() => {
     const section = document.getElementById(sections[currentSection]);
     if (section) {
@@ -27,7 +30,6 @@ const ScrollNavigator = () => {
     }
   }, [currentSection, scrollCounter]);
 
-  // Oculta la sección anterior y la resetea
   const resetAndHidePreviousSection = useCallback((prevSectionIndex) => {
     const previousSection = document.getElementById(sections[prevSectionIndex]);
     if (previousSection) {
@@ -38,7 +40,6 @@ const ScrollNavigator = () => {
     }
   }, []);
 
-  // Muestra la sección actual con el estilo adecuado
   const showCurrentSection = useCallback(() => {
     const section = document.getElementById(sections[currentSection]);
     if (section) {
@@ -48,7 +49,6 @@ const ScrollNavigator = () => {
     }
   }, [currentSection]);
 
-  // Controla la animación de transición visual entre secciones
   const triggerTransitionAnimation = useCallback(() => {
     setShowTransition(true);
     setTimeout(() => {
@@ -56,7 +56,6 @@ const ScrollNavigator = () => {
     }, 800);
   }, []);
 
-  // Navega a la sección objetivo con control de transiciones
   const navigateToSection = useCallback(
     (targetSectionIndex) => {
       if (targetSectionIndex === currentSection || targetSectionIndex < 0 || targetSectionIndex >= sections.length) return;
@@ -71,7 +70,7 @@ const ScrollNavigator = () => {
         setActiveSection(sections[targetSectionIndex]);
         const nextElement = document.getElementById(sections[targetSectionIndex]);
         if (nextElement) {
-          nextElement.scrollIntoView({ behavior: 'auto' }); // Ajuste: Cambio a 'auto' para un scroll más rápido
+          nextElement.scrollIntoView({ behavior: 'auto' });
           setTimeout(() => {
             showCurrentSection();
             setIsTransitioning(false);
@@ -104,6 +103,26 @@ const ScrollNavigator = () => {
     },
     [scrollEnabled, isTransitioning, scrollCounter, navigateToSection, currentSection, isMiddleClickActive]
   );
+
+  const handleTouchStart = useCallback((event) => {
+    touchStartY.current = event.touches[0].clientY;
+  }, []);
+
+  const handleTouchMove = useCallback((event) => {
+    touchEndY.current = event.touches[0].clientY;
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    if (isTransitioning || !scrollEnabled) return;
+
+    const distance = touchStartY.current - touchEndY.current;
+
+    if (distance > 50) {
+      navigateToSection(currentSection + 1); // Desplazamiento hacia arriba
+    } else if (distance < -50) {
+      navigateToSection(currentSection - 1); // Desplazamiento hacia abajo
+    }
+  }, [isTransitioning, scrollEnabled, currentSection, navigateToSection]);
 
   useEffect(() => {
     const handleScroll = (event) => {
@@ -138,7 +157,6 @@ const ScrollNavigator = () => {
         setIsMiddleClickActive(false);
       }
     };
-    
 
     window.addEventListener('wheel', handleScroll, { passive: false });
     window.addEventListener('mousedown', handleMouseDown);
@@ -146,14 +164,33 @@ const ScrollNavigator = () => {
     window.addEventListener('mousemove', handleMiddleClickScroll);
     window.addEventListener('scroll', disableScroll, { passive: false });
 
+    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    window.addEventListener('touchend', handleTouchEnd, { passive: false });
+
     return () => {
       window.removeEventListener('wheel', handleScroll);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
       window.removeEventListener('mousemove', handleMiddleClickScroll);
       window.removeEventListener('scroll', disableScroll);
+
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [scrollCounter, currentSection, isTransitioning, scrollEnabled, applyZoomEffect, navigateToSection, handleMiddleClickScroll]);
+  }, [
+    scrollCounter,
+    currentSection,
+    isTransitioning,
+    scrollEnabled,
+    applyZoomEffect,
+    navigateToSection,
+    handleMiddleClickScroll,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  ]);
 
   useEffect(() => {
     window.navigateToSection = navigateToSection;
