@@ -65,9 +65,15 @@ const Navbar = () => {
         <NavLink to="/store" className="desktop-navbar-link desktop-store-button">
           <FontAwesomeIcon icon={faStore} /> Store
         </NavLink>
-        <NavLink to="/map" className="desktop-navbar-link">
+        {/* Cambiar el NavLink de Map a una etiqueta <a> para abrir un enlace externo */}
+        <a
+          href="http://play.flancraft.com:8123"
+          className="desktop-navbar-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FontAwesomeIcon icon={faMap} /> Map
-        </NavLink>
+        </a>
         <NavLink to="/flan" className="desktop-navbar-link desktop-flan-button">
           <FontAwesomeIcon icon={faSackDollar} /> Flan
         </NavLink>
