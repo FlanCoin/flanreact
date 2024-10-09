@@ -1,0 +1,181 @@
+/* src/components/marketplace/Marketplace.css */
+
+.marketplace-container {
+    background-color: #0e1621;
+    color: #ffffff;
+    max-height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+  /* Sección de Categorías */
+  .marketplace-categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Ajustar según sea necesario */
+    flex-wrap: wrap;
+    margin-top: 7vw;
+  }
+  
+  .category-card {
+    background-color: transparent;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 450px; /* Aumentar tamaño de la carta */
+    height: 550px; /* Ajustar altura */
+    position: relative;
+  }
+  
+  .category-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  
+  .category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  .category-content {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 20px;
+    border-radius: 8px;
+    width: 85%; /* Asegurar que no se sobresalga del borde */
+  }
+  
+  .category-icon {
+    display: block;
+    font-size: 5rem; /* Aumentar tamaño para mayor visibilidad */
+    margin: 0 auto 10px; /* Centrar icono */
+  }
+  
+  /* Colores específicos para cada categoría */
+  .category-icon.construcciones {
+    color: #66bb6a; /* Verde para Construcciones */
+  }
+  
+  .category-icon.monturas {
+    color: #DF4B4C; /* Rojo para Monturas */
+  }
+  
+  .category-icon.mascotas {
+    color: #f0ca22; /* Amarillo para Mascotas */
+  }
+  
+/* Estilo para las categorías bloqueadas */
+.blocked-category {
+  cursor: not-allowed; /* Cambiar el cursor para indicar que está bloqueado */
+  opacity: 0.8; /* Reducir ligeramente la opacidad para dar efecto de bloqueo */
+}
+
+.blocked-category img.category-image {
+  filter: grayscale(60%); /* Reducir la intensidad del grayscale para las categorías bloqueadas */
+}
+
+.blocked-category:hover {
+  transform: none; /* No permitir la animación de hover */
+  box-shadow: none; /* Quitar sombras al hacer hover */
+}
+
+/* Eliminar el grayscale de la categoría Monturas */
+.marketplace-categories .category-card:not(.blocked-category) img.category-image {
+  filter: none; /* Sin filtro para Monturas */
+}
+
+/* Efecto de shake */
+.shake {
+  animation: shake-animation 0.3s ease-in-out; /* Hacer la animación más rápida */
+}
+
+/* Definición de la animación de shake */
+@keyframes shake-animation {
+  0% { transform: translateX(0); }
+  15% { transform: translateX(-8px); } /* Movimiento más pronunciado */
+  30% { transform: translateX(8px); }
+  45% { transform: translateX(-8px); }
+  60% { transform: translateX(8px); }
+  75% { transform: translateX(-8px); }
+  90% { transform: translateX(8px); }
+  100% { transform: translateX(0); }
+}
+
+/* Ajuste del tamaño y estilo de las cartas */
+.marketplace-categories .category-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.marketplace-categories .category-card img.category-image {
+  width: 100%;
+  height: 100%;
+}
+
+.marketplace-categories .category-card .category-content {
+  text-align: center;
+  color: #ffffff;
+}
+
+.marketplace-categories .category-icon {
+  display: block;
+  font-size: 5rem; /* Tamaño grande para los iconos */
+  margin: 0 auto 10px;
+}
+
+/* Icono y título de las categorías */
+.category-title {
+  font-size: 1.8rem;
+  font-family: 'Press Start 2P', sans-serif;
+  color: #ffffff;
+  white-space: nowrap; /* Evitar que el texto se corte */
+  margin: 0 auto;
+}
+
+
+  
+  
+/* Ajuste Responsivo */
+@media (max-width: 768px) {
+    .marketplace-categories {
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 30px;
+    }
+  
+    .category-card {
+      width: 90%;
+      height: 450px;
+    }
+  
+    .category-image {
+      height: 100%;
+    }
+  
+    .category-icon {
+      font-size: 3rem;
+    }
+  
+    .category-title {
+      font-size: 1.5rem;
+    }
+  
+    .center-navbar-logo {
+      height: 40px;
+    }
+    .flan-logo,
+    .collect-logo {
+      font-size: 1.2rem;
+    }
+  }
+  
+  

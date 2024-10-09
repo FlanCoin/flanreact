@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* ============ Estilos del Navbar Principal (Escritorio) ============ */
+.desktop-navbar {
+  background-color: #B9AB83;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  border-bottom: 4px solid #412624;
+}
+
+.desktop-navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 9px;
+  background: 
+    linear-gradient(to bottom, #8B785B, #8B785B) 0 0 / 100% 2px,
+    linear-gradient(to bottom, #412624, #412624) 0 2px / 100% 1px,
+    linear-gradient(to bottom, #8B785B, #8B785B) 0 3px / 100% 2px,
+    linear-gradient(to bottom, #412624, #412624) 0 5px / 100% 1px;
+}
+
+.desktop-navbar-socials {
+  position: absolute;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 101;
+}
+
+.desktop-navbar-socials a {
+  color: #8B7868;
+  font-size: 22px;
+  transition: color 0.3s ease;
+}
+
+.desktop-navbar-socials a:hover {
+  color: white;
+}
+
+/* Links del Navbar Principal */
+.desktop-navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.desktop-navbar-link {
+  text-decoration: none;
+  color: #412624;
+  font-family: 'VT323', monospace;
+  font-weight: bold;
+  padding: 6px 18px;
+  background-color: #897664;
+  border: 2px solid #412624;
+  box-shadow: inset 0 0 0px #000, 3px 3px 6px rgba(0, 0, 0, 0.4), -3px -3px 6px rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s, border 0.3s;
+  position: relative;
+}
+
+.desktop-navbar-link:hover {
+  background-color: #725B4E;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Botones de Tienda y Flan */
+.desktop-store-button {
+  background: linear-gradient(45deg, #FFE071 25%, #FFD65A 25%, #FFD65A 50%, #FFE071 50%, #FFE071 75%, #FFD65A 75%, #FFD65A);
+  background-size: 20px 20px;
+  color: #412624;
+  font-size: 16px;
+  padding: 6px 18px;
+  border: 2px solid #412624;
+}
+
+.desktop-flan-button {
+  background: url('/src/assets/flannav.png') no-repeat;
+  background-color: #339BCD;
+  color: #412624;
+  font-size: 16px;
+  padding: 6px 25px;
+  border: 2px solid #412624;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.desktop-marketplace-button {
+  background-color: #A7EB64;
+  color: #412624;
+  font-size: 16px;
+  padding: 6px 12px;
+  border: 2px solid #412624;
+  position: absolute;
+  right: 20px;
+  top: 15%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: not-allowed; /* Añadir cursor de no permitido */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.desktop-marketplace-button:hover {
+  background-color: #8AEF40;
+}
+
+/* ============ Estilos del Mobile Navbar (Con Nombres de Clases Únicos) ============ */
+.mobile-menu-button {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background-color: #897664;
+  color: #412624;
+  border: 2px solid #412624;
+  padding: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 200;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.mobile-menu-button:hover {
+  background-color: #725B4E;
+}
+
+/* Estilos del Navbar Lateral Responsive */
+.mobile-navbar-container {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100%;
+  width: 300px;
+  background-color: #B9AB83;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 199;
+  padding-top: 60px;
+  gap: 20px;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+}
+
+.mobile-navbar-container.show {
+  left: 0;
+}
+
+/* Overlay del Navbar Lateral */
+.mobile-navbar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+}
+
+.mobile-navbar-overlay.show {
+  display: block;
+}
+
+/* Links del Mobile Navbar */
+.mobile-navbar-container .mobile-navbar-link {
+  text-decoration: none;
+  color: #412624;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  padding: 15px 20px;
+  border: 2px solid #412624;
+  background-color: #897664;
+  margin: 10px;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mobile-navbar-container .mobile-navbar-link:hover {
+  background-color: #725B4E;
+  color: white;
+}
+
+/* Estilo para los enlaces activos en el Desktop Navbar */
+.desktop-navbar-link.active,
+.desktop-navbar-link.active:hover {
+  background-color: #725B4E; /* Fondo oscuro para el estado activo */
+  color: white; /* Letras en blanco */
+  transform: none; /* Desactivar la transformación de escala */
+}
+
+/* Estilo para el enlace activo específico en el botón de Store */
+.desktop-store-button.active,
+.desktop-store-button.active:hover {
+  background: #725B4E;
+  color: white;
+}
+
+/* Estilo para el enlace activo específico en el botón de Marketplace */
+.desktop-marketplace-button.active,
+.desktop-marketplace-button.active:hover {
+  background-color: #8AEF40;
+  color: white;
+}
+
+/* Estilo para el enlace activo específico en el botón de Flan */
+.desktop-flan-button.active,
+.desktop-flan-button.active:hover {
+  background-color: #0077B6;
+  color: rgb(69, 70, 64);
+}
+
+
+/* Estilos Responsive */
+@media (max-width: 1282px) {
+  .desktop-navbar {
+    display: none; /* Ocultar el navbar de escritorio en pantallas pequeñas */
+  }
+
+  .mobile-menu-button {
+    display: block; /* Mostrar el botón de menú en pantallas pequeñas */
+  }
+
+  .mobile-navbar-container {
+    display: flex; /* Mostrar el navbar lateral solo en móvil */
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    font-size: 14px;
+    padding: 8px 16px;
+    left: 10px;
+    top: 10px;
+  }
+
+  .mobile-navbar-container {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-menu-button {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+
+  .mobile-navbar-container {
+    width: 220px;
+  }
+}
+/* Añadir animación shake */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
+.desktop-navbar-link.locked {
+  cursor: not-allowed;
+  color: #999; /* Cambiar el color para indicar que está bloqueado */
+}

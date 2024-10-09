@@ -1,0 +1,47 @@
+/* Estilo base para el separador */
+.separador-section {
+  position: absolute;
+  top: 655vh; /* Ajusta la posición según sea necesario */
+  left: -5%;
+  width: 110%;
+  height: 20vw;
+  background-image: url('../../assets/separador5.png'); /* Asegúrate de usar la imagen correcta */
+  background-size: cover;
+  background-position: center;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Estilo para el texto del separador */
+.separador-img {
+  color: #1EB7D6; /* Color temporal, lo puedes modificar */
+  font-size: 34px; /* Ajusta el tamaño de la fuente */
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  width: 100%;
+  line-height: 1.4;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 224, 113, 0.7);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  animation: glow-pulse-5 3s ease-in-out infinite;
+  transform: rotate(-180.4deg);
+  height: var(--separator-text-height, 20px);
+}
+
+/* Forzar ocultamiento del separador en dispositivos menores a 1024px */
+@media (max-width: 1919px) {
+  .separador-section {
+    display: none !important; /* Forzar display none */
+    visibility: hidden !important; /* Ocultar completamente */
+    opacity: 0 !important; /* Asegurar que no sea visible */
+    height: 0 !important; /* Eliminar cualquier tamaño */
+    overflow: hidden; /* Prevenir que se desborde */
+    z-index:-10;
+  }
+}

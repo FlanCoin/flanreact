@@ -1,0 +1,392 @@
+.roadmap-section {
+    height: 270vh; /* Espacio extra para permitir scroll */
+    position: relative;
+    background: linear-gradient(to bottom, #47677D 10%, #5089A6, #4A638B, #414775); /* Gradiente de fondo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: 400% 400%; /* Tamaño grande para la animación */
+    animation: backgroundScroll 15s ease-in-out infinite; /* Animación del fondo */
+    background-position: top; /* Posición inicial en la parte superior */
+}
+
+.roadmap-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/abstract.png');
+    background-size: auto;
+    background-repeat: repeat; /* La imagen se repetirá en toda la sección */
+    background-position: center;
+    background-blend-mode: color-dodge;
+    opacity: 0.5; /* Solo la imagen tiene opacidad */
+    z-index: 1; /* Asegura que esté detrás del contenido pero encima del gradiente */
+    pointer-events: none; /* Para que no interfiera con la interacción del usuario */
+    animation: backgroundScroll 15s ease-in-out infinite; /* Aplica la misma animación que al gradiente */
+
+}
+
+/* Aplica la animación a la imagen y al fondo */
+@keyframes backgroundScroll {
+    0% {
+        background-position: top;
+    }
+    50% {
+        background-position: bottom;
+    }
+    100% {
+        background-position: top;
+    }
+}
+
+.roadmap-section > * {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido esté encima de la imagen */
+}
+
+
+
+.roadmap-header {
+    position: sticky;
+    top: 20px;
+    font-size: 3rem;
+    color: #FDD622; /* Cambiado a un color dorado brillante, acorde al estilo */
+    font-family: 'Press Start 2P', sans-serif;
+    padding: 15px 30px; /* Más espacio para darle un aspecto más elegante */
+    text-align: center;
+    z-index: 15;
+    background-color: #191919; /* Fondo oscuro que resalta el texto */
+    border: 5px solid #ffffff; /* Borde dorado estilo retro */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); /* Sombra para darle profundidad */
+    transition: transform 0.3s ease, background-color 0.3s, box-shadow 0.3s; /* Animaciones suaves */
+    text-shadow: 3px 3px 0px #333, -2px -2px 0px #333; /* Sombra del texto estilo pixel retro */
+  }
+  
+  /* Hover effect para hacerlo más interactivo */
+  .roadmap-header:hover {
+    background-color: #F0A500; /* Cambio a un tono dorado más claro al pasar el ratón */
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.8); /* Sombra más intensa en hover */
+    transform: scale(1.05); /* Efecto de ampliación suave */
+  }
+  
+
+.roadmap-timeline {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.roadmap-card {
+    width: 85%;
+    height: 85vh;
+    opacity: 0; /* Comienzan invisibles */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacio equilibrado */
+    align-items: center;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0px); /* Posicionadas verticalmente */
+    border-radius: 15px;
+    border: 6px solid;
+    font-family: 'Press Start 2P', sans-serif;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    z-index: 0;
+}
+
+.roadmap-card h3 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+}
+
+.roadmap-card p {
+    font-size: 1.2rem;
+    line-height: 1.6; /* Mejora la legibilidad */
+    text-align: justify;
+    margin: 20px 0;
+    width: 90%;
+}
+
+.roadmap-card img {
+    width: 50%; /* Tamaño adecuado para la imagen animada */
+    height: auto;
+    margin: 20px 0;
+    animation: bounce 2s infinite ease-in-out; /* Animación para la imagen */
+}
+
+/* Animación de rebote para la imagen */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.roadmap-card .bottom-section {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+/* Botón o enlaces en la parte inferior */
+.roadmap-card button, .roadmap-card a {
+    font-size: 1rem;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.roadmap-card button:hover, .roadmap-card a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.card-1 {
+    top: 10vh;  /* Mantiene la carta en la parte superior */
+    background-color: #1E1E1E;
+    border-color: #ffffff;
+}
+
+.card-1 img {
+    width: auto;  /* Mantiene el tamaño original de la imagen */
+    max-width: 40%;  /* Ajusta la imagen para que ocupe el 40% del ancho de la carta */
+    height: auto;
+    object-fit: contain;
+    margin-left: center;  /* Alinea la imagen al borde derecho */
+    display: block;
+    position: relative;
+    top: -5vh;  /* Ajusta este valor para mover la imagen hacia arriba */
+}
+
+.card-1 p {
+    margin-top: -10px;  /* Ajusta este valor para mover el texto hacia arriba */
+    color: white;
+    position: relative;
+    top: -40px;  /* Mueve el texto hacia arriba sin afectar su relación con otros elementos */
+    text-align: center;
+}
+
+.card-2 {
+    top: 45vh;  /* Segunda carta justo debajo del viewport */
+    background-color: #87CEEB;
+    border-color: #000;
+}
+
+.card-2 img {
+    width: auto;  /* Mantiene el tamaño original de la imagen */
+    max-width: 40%;  /* Ajusta la imagen para que ocupe el 40% del ancho de la carta */
+    height: auto;
+    object-fit: contain;
+    margin-left: center;  /* Alinea la imagen al borde derecho */
+    display: block;
+    position: relative;
+    top: -5vh;  /* Ajusta este valor para mover la imagen hacia arriba */
+}
+
+.card-2 p {
+    margin-top: -10px;  /* Ajusta este valor para mover el texto hacia arriba */
+    color: white;
+    position: relative;
+    top: -80px;  /* Mueve el texto hacia arriba sin afectar su relación con otros elementos */
+    text-align: center;
+}
+
+.card-3 {
+    top: 80vh;  /* Tercera carta más abajo */
+    background-color: #48A9A6;
+    border-color: #000;
+    color: #000;
+}
+
+.card-3 img {
+    width: auto;  /* Mantiene el tamaño original de la imagen */
+    max-width: 27%;  /* Ajusta la imagen para que ocupe el 40% del ancho de la carta */
+    height: auto;
+    object-fit: contain;
+    margin-left: center;  /* Alinea la imagen al borde derecho */
+    display: block;
+    position: relative;
+    top: -20vh;  /* Ajusta este valor para mover la imagen hacia arriba */
+}
+
+.card-3 p {
+    margin-top: -240px;  /* Ajusta este valor para mover el texto hacia arriba */
+    color: white;
+    position: relative;
+    top: -10px;  /* Mueve el texto hacia arriba sin afectar su relación con otros elementos */
+    text-align: center;
+}
+
+.card-4 {
+    top: 120vh;  /* Cuarta carta */
+    background-color: #BFCBDC;
+    border-color: #000;
+    color: #000;
+}
+
+.card-4 img {
+    width: auto;  /* Mantiene el tamaño original de la imagen */
+    max-width: 30%;  /* Ajusta la imagen para que ocupe el 40% del ancho de la carta */
+    height: auto;
+    object-fit: contain;
+    margin-left: center;  /* Alinea la imagen al borde derecho */
+    display: block;
+    position: relative;
+    top: -20vh;  /* Ajusta este valor para mover la imagen hacia arriba */
+}
+
+.card-4 p {
+    margin-top: -350px;  /* Ajusta este valor para mover el texto hacia arriba */
+    color: white;
+    position: relative;
+    top: -10px;  /* Mueve el texto hacia arriba sin afectar su relación con otros elementos */
+    text-align: center;
+}
+
+.card-5 {
+    top: 160vh;  /* Cuarta carta */
+    background-color: #282A34;
+    border-color: #000;
+    color: #FFF;
+}
+
+.card-5 img {
+    width: auto;  /* Mantiene el tamaño original de la imagen */
+    max-width: 30%;  /* Ajusta la imagen para que ocupe el 40% del ancho de la carta */
+    height: auto;
+    object-fit: contain;
+    margin-left: center;  /* Alinea la imagen al borde derecho */
+    display: block;
+    position: relative;
+    top: -20vh;  /* Ajusta este valor para mover la imagen hacia arriba */
+}
+
+.card-5 p {
+    margin-top: -350px;  /* Ajusta este valor para mover el texto hacia arriba */
+    color: white;
+    position: relative;
+    top: -10px;  /* Mueve el texto hacia arriba sin afectar su relación con otros elementos */
+    text-align: center;
+}
+
+
+
+.roadmap-card.visible {
+    opacity: 1;
+    transform: translate(-50%, -120px); /* Las cartas visibles suben */
+    z-index: 10;
+}
+
+
+
+@media (max-width: 768px) {
+    .roadmap-card {
+        padding: 20px;
+    }
+
+    .roadmap-card h3 {
+        font-size: 2rem;
+    }
+
+    .roadmap-card p {
+        font-size: 1rem;
+    }
+
+    .roadmap-card img {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .roadmap-card {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .roadmap-card h3 {
+        font-size: 2.4rem;
+    }
+
+    .roadmap-card p {
+        font-size: 1rem;
+    }
+
+    .roadmap-card img {
+        width: 60%;
+    }
+
+    .roadmap-header {
+        font-size: 2.5rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .roadmap-header {
+        font-size: 2rem;
+        padding: 10px 15px;
+    }
+
+    .roadmap-card {
+        width: 100%;
+        padding: 10px;
+        margin-top: 30px;
+    }
+
+    .roadmap-card h3 {
+        font-size: 1.8rem;
+    }
+
+    .roadmap-card p {
+        font-size: 0.9rem;
+    }
+
+    .roadmap-card img {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .roadmap-header {
+        font-size: 1.8rem;
+        padding: 5px 10px;
+    }
+
+    .roadmap-card {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .roadmap-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .roadmap-card p {
+        font-size: 0.8rem;
+    }
+
+    .roadmap-card img {
+        width: 90%;
+    }
+}

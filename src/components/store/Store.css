@@ -1,0 +1,16 @@
+/* src/components/store/Store.css */
+
+.store-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la pantalla */
+    background-color: #f0f0f0; /* Color de fondo opcional */
+  }
+  
+  .store-iframe {
+    width: 100%;
+    height: 100%;
+    border: none; /* Sin bordes para el iframe */
+  }
+  

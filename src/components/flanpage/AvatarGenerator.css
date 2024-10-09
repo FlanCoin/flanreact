@@ -1,0 +1,342 @@
+.avatar-generator {
+  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(to bottom, #3F1939, #414775, #47677D, #8FC9E0);
+  color: #dcdcdc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 25px;
+  color: #FFD700;
+  text-shadow: 2px 2px #000, 4px 4px #00796b;
+  animation: pulse 4s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    color: #FFCC00;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.category-container {
+  display: flex;
+  gap: 100px;
+  width: 100%;
+  max-width: 1400px;
+  overflow: hidden;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative; /* Ajuste para asegurar que los elementos no se superpongan */
+}
+
+.categories {
+  flex: 1;
+  max-width: 500px;
+  max-height: calc(100vh - 145px);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 3px solid #00FFA3;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  overflow-y: auto;
+  order: 0; /* Mantener debajo del avatar en la disposición */
+  z-index: 1; /* Menor prioridad que el contenedor de avatar */
+}
+
+.category-title {
+  font-size: 20px;
+  color: #FFD700;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px #000;
+}
+
+.items-row-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.items-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px;
+  background: #402D5C;
+  border-radius: 10px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+  scroll-behavior: smooth;
+  max-height: 150px;
+  cursor: grab;
+  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #444;
+}
+
+.items-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.items-row::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.items-row::-webkit-scrollbar-track {
+  background: #444;
+  border-radius: 4px;
+}
+
+.item-wrapper {
+  flex: 0 0 auto;
+  width: 85px;
+  height: 85px;
+  padding: 5px;
+  background: #4A3B6D;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.item-wrapper:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 230, 118, 0.7);
+}
+
+/* Estilo para los elementos seleccionados */
+.item-wrapper.selected-item {
+  border: 3px solid #FFD700; /* Borde dorado */
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); /* Resplandor dorado */
+  box-sizing: border-box; /* Asegura que el borde no afecte al tamaño del elemento */
+  transform: none; /* Mantener el tamaño original */
+}
+
+/* Suavizar la transición y evitar que se mueva */
+.item-wrapper.selected-item:hover {
+  transform: none; /* No aplicar escala en hover */
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1); /* Más brillo al hacer hover */
+}
+
+/* Corregir tamaños para que no cambien el contenedor */
+.item-wrapper {
+  box-sizing: border-box; /* Mantener el tamaño del contenedor con los bordes */
+}
+
+
+.avatar-item {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  background: rgba(240, 240, 240, 0.5);
+}
+
+.arrow-button {
+  width: 30px;
+  height: 30px;
+  background: #00FFA3;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow-button.left {
+  left: -20px;
+}
+
+.arrow-button.right {
+  right: -20px;
+}
+
+.arrow-button:hover {
+  background-color: #00c853;
+}
+
+.avatar-preview-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 600px;
+  margin-top: 0;
+  z-index: 2; /* Asegurar que esté por encima del contenedor de categorías */
+  order: 1; /* Darle prioridad sobre el contenedor de categorías */
+}
+
+.avatar-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 3px solid #00FFA3;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.avatar-display {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background: #402D5C;
+  border: 2px solid #888;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+.avatar-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.controls {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.download-button, .random-button, .clear-button {
+  padding: 12px 25px;
+  background-color: #00FFA3;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Press Start 2P', cursive;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  border-radius: 8px;
+}
+
+.download-button:hover, .random-button:hover, .clear-button:hover {
+  background-color: #00c853;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 163, 1);
+}
+
+.clear-button {
+  background-color: #b0b0b0;
+}
+
+.clear-button:hover {
+  background-color: #999;
+}
+
+/* Media queries para móviles y tablets */
+@media (max-width: 768px) {
+  .category-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .avatar-preview-container {
+    order: -1;
+  }
+
+  .avatar-display {
+    max-width: 300px;
+    height: 300px;
+  }
+
+  .download-button, .random-button, .clear-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .arrow-button.left {
+    left: -15px;
+  }
+
+  .arrow-button.right {
+    right: -15px;
+  }
+}
+
+/* Ajustes específicos para smartphones verticales */
+@media (max-width: 480px) {
+  .avatar-generator {
+    padding: 15px;
+  }
+
+  .category-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .categories {
+    max-width: 100%; /* Ajustar tamaño del contenedor */
+    max-height: 500px;
+    z-index: 1; /* Mantener por debajo del contenedor del avatar */
+  }
+
+  .avatar-preview-container {
+    order: -1;
+    z-index: 2;
+  }
+
+  .avatar-preview {
+    padding: 10px;
+  }
+
+  .avatar-display {
+    max-width: 220px;
+    height: 250px;
+  }
+
+  .download-button, .random-button, .clear-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+}

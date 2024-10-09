@@ -1,0 +1,717 @@
+/* Estilo general de la sección Battle Music */
+/* Contenedor general de la sección */
+.battle-music-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #8BC5DF, #9CD1E4, #75B0D6, #61A5C7); /* Colores iniciales */
+  background-size: 600% 600%; /* Permite mayor desplazamiento para crear efecto fluido */
+  overflow: hidden;
+  animation: smoothFlow 50s ease infinite,  /* Animación suave por defecto */
+}
+
+/* Animación de color lenta y continua para un efecto fluido */
+@keyframes smoothFlow {
+  0% {
+    background-position: 0% 50%;
+    background: linear-gradient(135deg, #84C1DF, #9CD1E4, #75B0D6, #61A5C7);
+  }
+  25% {
+    background-position: 25% 75%;
+    background: linear-gradient(135deg, #6EAECF, #9CD1E4, #7FB9D8, #61A5C7);
+  }
+  50% {
+    background-position: 50% 25%;
+    background: linear-gradient(135deg, #84C1DF, #75B0D6, #9CD1E4, #61A5C7);
+  }
+  75% {
+    background-position: 75% 0%;
+    background: linear-gradient(135deg, #61A5C7, #7FB9D8, #75B0D6, #9CD1E4);
+  }
+  100% {
+    background-position: 100% 50%;
+    background: linear-gradient(135deg, #84C1DF, #61A5C7, #75B0D6, #9CD1E4);
+  }
+}
+
+/* Animación más dinámica y variada para cuando la música está en reproducción */
+@keyframes dynamicFlow {
+  0% {
+    background-position: 0% 50%;
+    background: linear-gradient(135deg, #84C1DF, #5D9DB7, #75B0D6, #4A8CA7);
+  }
+  20% {
+    background-position: 20% 70%;
+    background: linear-gradient(135deg, #75B0D6, #84C1DF, #4A8CA7, #61A5C7);
+  }
+  40% {
+    background-position: 40% 20%;
+    background: linear-gradient(135deg, #4A8CA7, #5D9DB7, #84C1DF, #75B0D6);
+  }
+  60% {
+    background-position: 60% 80%;
+    background: linear-gradient(135deg, #84C1DF, #4A8CA7, #61A5C7, #75B0D6);
+  }
+  80% {
+    background-position: 80% 30%;
+    background: linear-gradient(135deg, #5D9DB7, #84C1DF, #75B0D6, #4A8CA7);
+  }
+  100% {
+    background-position: 100% 50%;
+    background: linear-gradient(135deg, #84C1DF, #5D9DB7, #4A8CA7, #75B0D6);
+  }
+}
+
+/* Cambia a la animación dinámica cuando la música se reproduce */
+.battle-music-section.playing {
+  animation: dynamicFlow 20s ease-in-out infinite; /* Ajuste para una animación más rápida */
+}
+
+/* Notas musicales animadas */
+.note {
+  position: absolute;
+  top: -10vh;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 1);
+  opacity: 1;
+  pointer-events: none;
+  animation: gentleFall var(--animationDuration, 15s) linear infinite; /* Duración de animación dinámica */
+  transform: translateX(0);
+  z-index: 0;
+  
+}
+
+/* Colores personalizados para las notas musicales */
+.note:nth-child(1) { color: #FF6F61; }
+.note:nth-child(2) { color: #FFD700; }
+.note:nth-child(3) { color: #FF69B4; }
+.note:nth-child(4) { color: #4CAF50; }
+.note:nth-child(5) { color: #FF8C00; }
+.note:nth-child(6) { color: #1E90FF; }
+.note:nth-child(7) { color: #9932CC; }
+.note:nth-child(8) { color: #FF1493; }
+.note:nth-child(9) { color: #7FFF00; }
+.note:nth-child(10) { color: #DA70D6; }
+
+/* Animación de las notas cuando no se reproduce música (caída suave tipo lluvia) */
+@keyframes gentleFall {
+  0% {
+    transform: translateY(-10vh);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0.3;
+  }
+}
+
+/* Ajustes adicionales para fluidez */
+.note:nth-child(odd) {
+  animation-timing-function: ease-in;
+}
+.note:nth-child(even) {
+  animation-timing-function: ease-out;
+}
+
+
+/* Contenedor principal de la consola GameBoy */
+.gameboy {
+  width: 500px;
+  height: 750px;
+  background: linear-gradient(145deg, #8fb8ff, #7495ff);
+  border-radius: 50px;
+  position: relative;
+  box-shadow:
+    15px 15px 35px rgba(0, 0, 0, 0.3), /* Sombra general */
+    -15px -15px 35px rgba(255, 255, 255, 0.2), /* Luz reflejada */
+    inset -5px -5px 20px rgba(0, 0, 0, 0.4), /* Profundidad hacia dentro */
+    inset 10px 10px 30px rgba(255, 255, 255, 0.3), /* Luz interior */
+    inset -15px -15px 15px rgba(0, 0, 0, 0.6); /* Biselado */
+  border: 12px solid #1e3d59;
+  background-clip: padding-box;
+  overflow: hidden;
+}
+
+/* Relieve y luz adicional en los bordes */
+.gameboy::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1)); /* Luz sutil */
+  box-shadow:
+    0px 0px 10px rgba(0, 0, 0, 0.6), /* Sombra exterior */
+    inset 5px 5px 15px rgba(0, 0, 0, 0.3), /* Relieve interno */
+    inset -5px -5px 15px rgba(255, 255, 255, 0.2); /* Luz reflejada */
+}
+/* Detalles del marco y borde de la GameBoy para darle mayor cuerpo */
+.gameboy::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px;
+  border: 12px solid rgba(255, 255, 255, 0.05); /* Borde claro para efecto de luz */
+  pointer-events: none;
+}
+
+
+/* Pantalla interna de la GameBoy (donde se muestran las canciones) */
+.gameboy-screen {
+  width: 400px;
+  max-height: 550px;
+  background: linear-gradient(145deg, #1a3a4b, #122a3b 80%, #0e202b);
+  margin: 40px auto;
+  border: 12px solid #1e3d59;
+  border-radius: 20px;
+  box-shadow: 
+    inset 0 0 15px rgba(0, 0, 0, 0.4), /* Sombra interna */
+    inset 0 0 20px rgba(255, 255, 255, 0.1), /* Luz interna */
+    0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra hacia fuera */
+  overflow: hidden;
+}
+
+/* Contorno de la pantalla para dar efecto de profundidad */
+.gameboy-screen::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 20px;
+  box-shadow: 
+    inset 2px 2px 5px rgba(0, 0, 0, 0.6), /* Sombra hacia dentro */
+    inset -2px -2px 5px rgba(255, 255, 255, 0.3); /* Luz reflejada */
+}
+
+/* Contenido de la pantalla */
+.screen-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  position: relative; /* Aseguramos que la barra de progreso se alinee bien */
+  overflow: hidden; /* Para evitar que elementos adicionales expandan la pantalla */
+  height: 100%; /* Fijar altura para evitar que el contenido la expanda */
+}
+
+/* Agregar un leve parpadeo retro en la pantalla */
+.screen-content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  pointer-events: none;
+  animation: crtFlicker 0.1s steps(1) infinite;
+}
+
+/* Parpadeo retro */
+@keyframes crtFlicker {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.05;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+/* Título de la pantalla */
+.screen-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  display: inline-block;
+}
+
+/* Efecto de parpadeo progresivo en cada letra */
+.screen-title span {
+  display: inline-block;
+  animation: flicker 0.5s ease-in-out infinite alternate; /* Animación de parpadeo */
+  animation-delay: calc(0.1s * var(--index)); /* Retraso individual por letra */
+}
+
+@keyframes flicker {
+  0% {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffeb3b, 0 0 10px #ffeb3b, 0 0 15px #ffeb3b;
+  }
+  50% {
+    color: #c5e1a5;
+    text-shadow: 0 0 5px #81c784, 0 0 10px #81c784, 0 0 15px #81c784;
+  }
+  100% {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffeb3b, 0 0 10px #ffeb3b, 0 0 15px #ffeb3b;
+  }
+}
+
+/* Lista de canciones */
+.song-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+}
+
+/* Cada canción individual */
+.song-item {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #dfe6e9;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+  position: relative; /* Ajuste para botones */
+}
+
+.song-item:hover {
+  background: rgba(46, 204, 113, 0.3);
+  transform: scale(1.05);
+}
+
+/* Contenedor para los botones de play y pause */
+.battle-button-container {
+  width: 30px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20px; /* Alineado a la derecha */
+}
+
+/* Botón de Play y Pause dentro de cada canción */
+.play-pause-button {
+  font-size: 0.9rem; /* Tamaño más visible */
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  display: inline-block;
+}
+
+/* Canciones bloqueadas */
+.song-item.locked {
+  color: #b0bec5;
+  pointer-events: none;
+}
+
+/* Canción seleccionada */
+.selected {
+  background: rgba(46, 204, 113, 0.6);
+  box-shadow: inset 0px 0px 8px rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  color: #ecf0f1;
+}
+
+/* Canción que se está reproduciendo con efecto de colores psicodélico */
+.playing-song {
+  animation: pulse 2s infinite ease-in-out; /* Aumentar la duración de la animación */
+  background: linear-gradient(135deg, #ff7f50, #1e90ff, #8a2be2, #ff1493, #ffa500); /* Gradiente de colores variados */
+  background-size: 400% 400%; /* Hacer que el gradiente se mueva */
+  color: white; /* Texto en blanco */
+  box-shadow: inset 0px 0px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Animación de pulsación con efecto de transición de color */
+@keyframes pulse {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Título en la consola (GameBoy) */
+.gameboy-title {
+  position: absolute;
+  bottom: 270px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.4rem;
+  color: #ffffff;
+  font-family: 'Press Start 2P', cursive;
+  padding: 6px 14px;
+  background: #1E3D59;
+  border: 4px solid #1e3d59;
+  border-radius: 10px;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.6), /* Sombra hacia fuera */
+    inset -1px -1px 2px rgba(0, 0, 0, 0.4), /* Sombra interior */
+    inset 2px 2px 2px rgba(255, 255, 255, 0.1); /* Luz interior */
+}
+
+/* Efecto de línea vertical retro en la pantalla */
+.gameboy-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: verticalFlicker 0.5s steps(20) infinite;
+}
+
+@keyframes verticalFlicker {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+/* Panel de control (Cruceta + Botones) */
+.control-panel {
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  transition: bottom 0.3s;
+  
+}
+
+/* Cruceta de la GameBoy */
+.dpad {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  top: -150px;
+  left: -35px;
+}
+
+/* Cruceta en forma de cruz */
+.dpad .cross {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+}
+
+.dpad .vertical,
+.dpad .horizontal {
+  background-color: #666666;
+  border-radius: 6px;
+  box-shadow: 
+    inset -3px -3px 6px rgba(0, 0, 0, 0.6), /* Sombra interna */
+    inset 3px 3px 6px rgba(255, 255, 255, 0.1); /* Luz reflejada */
+  position: absolute;
+}
+
+.dpad .vertical {
+  width: 30px;
+  height: 100px;
+}
+
+.dpad .horizontal {
+  width: 100px;
+  height: 30px;
+}
+
+.dpad .vertical .up-area,
+.dpad .vertical .down-area,
+.dpad .horizontal .left-area,
+.dpad .horizontal .right-area {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+}
+
+.dpad .vertical .up-area {
+  top: 0;
+}
+
+.dpad .vertical .down-area {
+  bottom: 0;
+}
+
+.dpad .horizontal .left-area {
+  left: 0;
+  width: 50%;
+  height: 100%;
+}
+
+.dpad .horizontal .right-area {
+  right: 0;
+  width: 50%;
+  height: 100%;
+}
+
+.dpad .vertical .up-area:active,
+.dpad .vertical .down-area:active,
+.dpad .horizontal .left-area:active,
+.dpad .horizontal .right-area:active {
+  box-shadow: inset 2px 2px 4px #000, inset -2px -2px 4px #444;
+  background-color: #555555;
+}
+
+/* Botones A y B */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -120px;
+}
+
+.buttons .button {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 4px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  line-height: 50px;
+  color: #ffffff;
+  font-family: 'Press Start 2P', cursive;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 
+    inset -6px -6px 12px rgba(0, 0, 0, 0.5), /* Sombras internas */
+    inset 6px 6px 12px rgba(255, 255, 255, 0.1), /* Luz interna */
+    4px 4px 12px rgba(0, 0, 0, 0.4); /* Sombra general */
+}
+
+
+.buttons .button:active {
+  transform: scale(0.95) translateX(5px);
+  box-shadow:
+    inset 0px 0px 15px rgba(0, 0, 0, 0.8), /* Efecto presionado */
+    inset -1px -1px 2px rgba(255, 255, 255, 0.2); /* Luz interior */
+}
+
+.buttons .button.A {
+  background: linear-gradient(145deg, #43a047, #33863d);
+  top: -10px;
+  left: -80px;
+}
+
+.buttons .button.B {
+  background: linear-gradient(145deg, #e53935, #c62828);
+  top: -40px;
+  left: -10px;
+}
+
+.lock-icon {
+  font-size: 1.2rem;
+  color: #ffcccb;
+  font-weight: bold;
+}
+
+.shake {
+  animation: shake 0.3s ease-in-out 0s 1;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* Contenedor del espectro de audio */
+.audio-spectrum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+}
+
+/* Cada barra individual del espectro */
+.bar {
+  width: 4px;
+  height: 18px;
+  background-color: #ffffff;
+  animation: bounce 0.8s ease-in-out infinite;
+}
+
+
+/* Diferente retraso para cada barra */
+.bar1 { animation-delay: 0.1s; }
+.bar2 { animation-delay: 0.2s; }
+.bar3 { animation-delay: 0.3s; }
+.bar4 { animation-delay: 0.4s; }
+.bar5 { animation-delay: 0.5s; }
+
+/* Altavoz Retro Posicionado */
+.speaker {
+  position: absolute;
+  bottom: 30px; /* Ajuste vertical */
+  left: 85px;   /* Ajuste horizontal para moverlo más a la derecha */
+  width: 45px;  /* Ancho del altavoz */
+  height: 65px; /* Altura del altavoz */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinea las líneas a la izquierda */
+  z-index: 20;
+  transform: rotate(-25deg); /* Mantiene la rotación inicial */
+}
+
+/* Estilo de las líneas del altavoz */
+.speaker-line {
+  width: 100%; /* Anchura completa del contenedor */
+  height: 8px; /* Grosor de cada línea */
+  background: #444; /* Color inicial de las líneas */
+  border-radius: 4px; /* Borde redondeado */
+  margin: 6px 0; /* Separación entre las líneas */
+  transition: transform 0.2s ease-in-out; /* Transición suave para efectos */
+}
+
+/* Efecto animado cuando se reproduce música */
+.speaker.active .speaker-line:nth-child(1) {
+  transform: scaleX(1.5); /* Escalar la primera línea */
+}
+
+.speaker.active .speaker-line:nth-child(2) {
+  transform: scaleX(2); /* Escalar la segunda línea */
+}
+
+.speaker.active .speaker-line:nth-child(3) {
+  transform: scaleX(1.7); /* Escalar la tercera línea */
+}
+
+/* Animación de vibración con zoom in y out en la posición correcta */
+.speaker.active {
+  animation: vibrateZoomCorrect 0.3s ease-in-out infinite; /* Activar la animación cuando se reproduce música */
+}
+
+/* Keyframes para el efecto de zoom sin cambiar la rotación */
+@keyframes vibrateZoomCorrect {
+  0% {
+    transform: rotate(-25deg) scale(1); /* Mantener el ángulo original */
+  }
+  25% {
+    transform: rotate(-25deg) scale(1.15); /* Pequeño zoom in */
+  }
+  50% {
+    transform: rotate(-25deg) scale(0.95); /* Zoom out */
+  }
+  75% {
+    transform: rotate(-25deg) scale(1.1); /* Zoom in nuevamente */
+  }
+  100% {
+    transform: rotate(-25deg) scale(1); /* Regresar al estado inicial */
+  }
+}
+/* Ajustes para la barra de progreso dentro de la pantalla */
+.progress-container {
+  position: absolute; /* Posición absoluta para no alterar el flujo */
+  bottom: 10px; /* Pegado al fondo de la screen */
+  width: 90%; /* Ajuste para que no ocupe el 100% de la pantalla */
+  left: 50%; /* Centrado horizontalmente */
+  transform: translateX(-50%); /* Compensar el centrado */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5; /* Asegurar que esté por encima de otros elementos */
+}
+
+.progress-bar {
+  flex-grow: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff9900; /* Color del "thumb" */
+  cursor: pointer;
+}
+
+.progress-bar::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff9900;
+  cursor: pointer;
+}
+
+.progress-time {
+  width: 70px;
+  margin-left: 10px;
+  font-size: 12px;
+  color: #fff;
+  text-align: right;
+}
+.error-animation {
+  animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10% { transform: translateX(-8px); }
+  20% { transform: translateX(8px); }
+  30% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  50% { transform: translateX(-6px); }
+  60% { transform: translateX(6px); }
+  70% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  90% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}

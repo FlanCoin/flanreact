@@ -1,0 +1,18 @@
+
+.map-container {
+    padding-top: 12vh; /* Ajusta este valor según la altura de tu navbar */
+    position: absolute;
+    width: 100vw;
+    height: 100vh; /* Ocupa toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Fondo negro para resaltar el mapa */
+  }
+  
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  

@@ -1,0 +1,105 @@
+/* Segundo Navbar */
+.secondary-navbar {
+    background-color: #246933; /* Color del segundo navbar */
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-top: 60px; /* Ajuste para desplazar hacia abajo el segundo navbar */
+    z-index: 19;
+  }
+  
+  /* Ajustes del texto del logo en lugar de la imagen */
+  .collect-text {
+    display: flex;
+    align-items: center;
+  }
+  
+  .flan-logo {
+    font-size: 2rem;
+    font-family: 'Minecraft Ten', sans-serif;
+    color: #ffffff;
+    margin-right: 10px;
+    margin-left: 20px; /* Mover ligeramente a la derecha */
+  }
+  
+  
+  /* Ajuste del texto "Collect" con animación de ola */
+  .collect-logo {
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+    color: #ffffff;
+    display: inline-flex; /* Usar flex para controlar cada letra */
+    margin-left: 5px; /* Mover ligeramente a la derecha */
+  }
+  
+  /* Ajustes específicos para cada letra */
+  .collect-logo span {
+    display: inline-block;
+    animation: wave 3s infinite; /* Animación con ciclo de 4 segundos */
+    animation-timing-function: ease-in-out;
+  }
+  
+  /* Animación de ola */
+  @keyframes wave {
+    0% {
+      transform: translateY(0px);
+    }
+    20% {
+      transform: translateY(-5px); /* Mover hacia arriba */
+    }
+    40% {
+      transform: translateY(0px); /* Regresar */
+    }
+    60% {
+      transform: translateY(5px); /* Mover hacia abajo */
+    }
+    80% {
+      transform: translateY(0px); /* Regresar */
+    }
+    100% {
+      transform: translateY(0px); /* Pausa */
+    }
+  }
+  
+  /* Aplicar diferentes tiempos de delay para cada letra */
+  .collect-logo span:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .collect-logo span:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  
+  .collect-logo span:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  
+  .collect-logo span:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  
+  .collect-logo span:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+  
+  .collect-logo span:nth-child(6) {
+    animation-delay: 0.5s;
+  }
+  
+  .collect-logo span:nth-child(7) {
+    animation-delay: 0.6s;
+  }
+    
+    .center-navbar-logo {
+      height: 50px; /* Ajuste del tamaño de la imagen central */
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .connect-wallet-button {
+      margin-right: 20px;
+    }

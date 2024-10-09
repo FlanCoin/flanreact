@@ -1,0 +1,100 @@
+/* src/components/marketplace/monturas/Modal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  width: 500px;
+  max-width: 90%;
+  background: #1e2835;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.modal-nft-image {
+  width: 100%;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.rarity-label {
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+
+.rarity-label.común {
+  background-color: #cccccc;
+  color: #000;
+}
+
+.rarity-label.poco-común {
+  background-color: #66bb6a;
+  color: #fff;
+}
+
+.rarity-label.raro {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.rarity-label.épico {
+  background-color: #9c27b0;
+  color: #fff;
+}
+
+.rarity-label.legendario {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+.buy-button {
+  background-color: #5e67ee;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.buy-button:hover {
+  background-color: #4a53c7;
+}

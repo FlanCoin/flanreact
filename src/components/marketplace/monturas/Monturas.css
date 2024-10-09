@@ -1,0 +1,351 @@
+/* Contenedor general */
+.monturas-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  background-color: #0e1621;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+
+/* Título de la sección */
+.title-section {
+  text-align: center;
+  font-size: 3rem; /* Tamaño de fuente adaptado */
+  font-family: 'Press Start 2P', sans-serif;
+  color: #2efa38;
+  text-shadow: 0px 0px 0px #8cfcb7, 0px 0px 20px #b9ffd4;
+  margin-top: 30px;
+  width: 100%;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #246933, #ffffff, #246933);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: titleColorShift 4s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .title-section {
+    font-size: 2.5rem; /* Ajuste para tablets */
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-section {
+    font-size: 2rem; /* Ajuste para móviles */
+    margin-top: 10px;
+  }
+}
+
+/* Animación de cambio de color en el título */
+@keyframes titleColorShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Contenedor de contenido (Filtros y Cartas) */
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Permitir que los elementos se ajusten en dispositivos pequeños */
+  padding-bottom: 50px; /* Añadido padding inferior para asegurar espacio */
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column; /* Colocar el sidebar y las cartas en una sola columna */
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Contenedor del sidebar */
+.rareza-sidebar {
+  background-color: #1e2835;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  width: 250px;
+  height: fit-content;
+  margin-right: 30px;
+  position: sticky;
+  top: 140px;
+}
+
+@media (max-width: 768px) {
+  .rareza-sidebar {
+    margin-right: 0;
+    margin-bottom: 20px; /* Separación debajo del sidebar en dispositivos más pequeños */
+    position: static; /* Eliminar sticky en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .rareza-sidebar {
+    width: 100%;
+  }
+}
+
+.rareza-sidebar h3 {
+  text-align: center;
+  font-family: 'Press Start 2P', sans-serif;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0px 0px 5px #ffffff;
+}
+
+/* Botones del sidebar */
+.rareza-button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.rareza-button.common {
+  background-color: #757575;
+}
+
+.rareza-button.uncommon {
+  background-color: #4caf50;
+}
+
+.rareza-button.rare {
+  background-color: #2196f3;
+}
+
+.rareza-button.epic {
+  background-color: #9c27b0;
+}
+
+.rareza-button.legendary {
+  background-color: #ff9800;
+}
+
+.rareza-button.all {
+  background-color: #000000;
+  color: #66bb6a;
+}
+
+.rareza-button:hover {
+  transform: translateX(5px);
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Contenedor de cartas */
+.nft-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  width: 70%;
+  padding: 0 100px;
+}
+@media (max-width: 480px) {
+  .nft-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+/* Tarjetas de los NFTs */
+.nft-card {
+  background-color: #1e2835;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  width: 270px;
+  max-width: 100%;
+  height: 420px; /* Ajuste de altura */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  animation: dealCard 0.6s ease forwards;
+}
+
+@keyframes dealCard {
+  0% {
+    transform: scale(0) rotate(-120deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .nft-card {
+    width: 90%; /* Aumentar el tamaño en tablets */
+    height: 380px;
+  }
+}
+@media (max-width: 480px) {
+  .nft-card {
+    width: 90%;
+    height: 350px;
+  }
+}
+
+.nft-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Imagen del NFT */
+.nft-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 2px solid #444; /* Borde separador */
+}
+
+/* Contenedor de los detalles de cada carta con padding extendido */
+.nft-details {
+  padding: 15px 10px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Aplicación de gradientes y fondos dinámicos según la rareza */
+.rarity-común .nft-details {
+  background: linear-gradient(145deg, #757575, #6b6b6b);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.rarity-poco-común .nft-details {
+  background: linear-gradient(145deg, #4caf50, #3d8b3e);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.rarity-raro .nft-details {
+  background: linear-gradient(145deg, #2196f3, #1b7fcc);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.rarity-épico .nft-details {
+  background: linear-gradient(145deg, #9c27b0, #7e1e8f);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.rarity-legendario .nft-details {
+  background: linear-gradient(145deg, #ff9800, #e08200);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo del botón de compra */
+.buy-now-button {
+  padding: 8px 20px;
+  background-color: #1c8d28;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin-top: auto;
+}
+
+@media (max-width: 480px) {
+  .buy-now-button {
+    font-size: 0.9rem;
+  }
+}
+
+.buy-now-button:hover {
+  background-color: #2ecb5f;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(52, 208, 88, 0.6);
+}
+
+.buy-now-button:active {
+  transform: translateY(1px);
+}
+
+/* Rareza de cada carta */
+.rarity-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* Estilo para el título de cada NFT */
+.nft-details h4 {
+  font-size: 1.4rem;
+  font-family: 'Press Start 2P', sans-serif;
+  margin-bottom: 8px;
+  color: #ffffff;
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 480px) {
+  .nft-details h4 {
+    font-size: 1.2rem; /* Tamaño de fuente más pequeño para móviles */
+  }
+}
+
+/* Estilo de los textos de información */
+.nft-details p {
+  margin: 4px 0;
+  color: #c7e0c4;
+  font-size: 1rem;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Fondo de la sección */
+body, .monturas-container, html {
+  background: #0e1621;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}

@@ -1,0 +1,165 @@
+/* Estilo del modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Efecto de entrada suave */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background-color: #4d4037;
+  border: 4px solid #412624;
+  border-radius: 12px;
+  padding: 40px;
+  color: white;
+  position: relative;
+  max-width: 800px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  text-align: justify;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); }
+  to { transform: translateY(0); }
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra en la imagen */
+}
+
+/* Imagen de la noticia */
+.modal-image {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.modal-image:hover {
+  transform: scale(1.03);
+  filter: brightness(90%);
+}
+
+/* Título de la noticia */
+.modal-title {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #FFDDC1;
+  font-family: 'Acme', sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  padding-bottom: 10px;
+  border-bottom: 2px solid #8AEF40;
+}
+
+/* Línea separadora */
+.modal-separator {
+  margin: 20px 0;
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, #8AEF40, transparent, #FFDDC1);
+}
+
+/* Fecha de la noticia */
+.modal-date {
+  font-size: 1.1em;
+  color: #e0d0c0;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* Texto del modal */
+.modal-text {
+  font-size: 1.2em;
+  line-height: 1.8;
+  text-align: left;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+}
+
+/* Listas dentro del modal */
+.modal-text ul,
+.modal-text ol {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.modal-text li {
+  margin: 10px 0; /* Espaciado entre elementos de lista */
+  line-height: 1.6;
+}
+/* Estilo para citas o notas importantes */
+.modal-text blockquote {
+  margin: 20px 0;
+  padding: 10px 20px;
+  background: rgba(138, 239, 64, 0.1); /* Resaltado con fondo claro */
+  border-left: 4px solid #8AEF40; /* Línea de cita */
+  font-style: italic;
+  color: #FFDDC1;
+}
+
+/* Estilo para párrafos especiales */
+.modal-text p + p {
+  margin-top: 15px; /* Espacio entre párrafos */
+}
+
+/* Estilo para subtítulos */
+.modal-text h4 {
+  margin: 20px 0 10px;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #8AEF40;
+  border-bottom: 2px solid #FFDDC1; /* Línea separadora del subtítulo */
+}
+
+/* Estilo para los párrafos del cuerpo del modal */
+.modal-paragraph {
+  margin: 15px 0;
+}
+/* Botón de cierre */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #ffddc1;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background: #FFD700;
+  color: #6b584c;
+  transform: scale(1.1);
+}

@@ -1,0 +1,89 @@
+.flan-banner {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background: #1A1A1A; /* Fondo oscuro */
+    height: 5vh; /* Altura ajustada para un diseño más compacto */
+    z-index: 10;
+    border-top: 0.5vh solid #ffffff;
+    border-bottom: 0.5vh solid #ffffff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+  }
+  
+  /* Contenedor del texto del banner */
+  .banner-text-container {
+    display: flex;
+    width: 200vh; /* Ajustado para evitar que se corte el texto en pantallas grandes */
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+    height: 100%;
+    align-items: center;
+  }
+  
+  /* Texto del banner */
+  .banner-text {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 1.5vw; /* Tamaño del texto adaptable */
+    color: #FFD65A;
+    padding: 0 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    animation: marquee 10s linear infinite; /* Animación continua */
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6); /* Sombra ligera */
+  }
+  
+  /* Hover del texto */
+  .flan-banner:hover .banner-text {
+    color: #FFFFFF; /* Texto blanco brillante en hover */
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Animación de desplazamiento */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0.7vw); /* Inicia fuera del contenedor, a la derecha */
+    }
+    100% {
+      transform: translateX(-20%); /* Se desplaza completamente fuera hacia la izquierda */
+    }
+  }
+  
+  /* Ajustes Responsive */
+  
+  /* Para tablets y pantallas medianas */
+  @media (max-width: 768px) {
+    .banner-text {
+      font-size: 2.5vw; /* Aumentar el tamaño del texto en tablets */
+      padding: 0 15px;
+    }
+    
+    .banner-text-container {
+      width: 300vw; /* Ajustar el ancho del contenedor para mantener el efecto de animación */
+    }
+  }
+  
+  /* Para dispositivos móviles grandes */
+  @media (max-width: 480px) {
+    .banner-text {
+      font-size: 3.5vw; /* Aumentar el tamaño del texto en móviles grandes */
+      padding: 0 10px;
+    }
+    
+    .banner-text-container {
+      width: 400vw; /* Ajustar el ancho del contenedor para mantener la animación */
+    }
+  }
+  
+  /* Para móviles pequeños */
+  @media (max-width: 320px) {
+    .banner-text {
+      font-size: 4vw; /* Aumentar el tamaño del texto en móviles más pequeños */
+      padding: 0 5px;
+    }
+    
+    .banner-text-container {
+      width: 500vw; /* Ajustar el ancho del contenedor */
+    }
+  }
+  

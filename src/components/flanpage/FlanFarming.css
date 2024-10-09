@@ -1,0 +1,227 @@
+/* Sección FlanFarming */
+.flan-farming {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, #3b0a2e, #4F1030);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  gap: 50px;
+  overflow: hidden;
+}
+
+/* Contenedor de la imagen de fondo */
+.pixel-background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.3;
+  background: url('../../assets/pixel-background.webp') center center / cover no-repeat;
+  animation: backgroundScroll 30s linear infinite;
+}
+
+@keyframes backgroundScroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Encabezado del título */
+.farming-content {
+  text-align: center;
+  color: #FFD44F;
+  z-index: 2;
+}
+
+.farming-content h2 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 4rem;
+  color: #FFD44F;
+  text-shadow: 4px 4px 0px #000000;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+.farming-content p {
+  font-size: 1.2rem;
+  font-family: 'Press Start 2P', cursive;
+  color: #FFFFFF;
+  margin-top: 10px;
+  text-shadow: 2px 2px 0px #000000;
+}
+
+/* Layout de video y descripción en paralelo */
+.farming-content-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1300px;
+  gap: 30px;
+  padding: 20px;
+  background: rgba(50, 20, 60, 0.7);
+  border-radius: 15px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.8);
+  animation: fadeIn 1.5s ease;
+  z-index: 2;
+}
+
+/* Contenedor del video */
+.farming-video-container {
+  width: 55%;
+  height: auto;
+  position: relative;
+  animation: bounceVideo 2s infinite alternate;
+}
+
+.farming-video {
+  width: 100%;
+  border: 4px solid #FFD44F;
+  border-radius: 15px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.7);
+  filter: grayscale(0.8);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+
+.farming-video:hover {
+  filter: grayscale(0);
+  transform: scale(1.02);
+}
+
+/* Efecto "+7" */
+.plus-seven {
+  position: absolute;
+  font-size: 24px;
+  font-family: 'Press Start 2P', cursive;
+  color: #FFD44F;
+  animation: riseAndFade 1.5s ease-in-out forwards;
+  pointer-events: none;
+  text-shadow: 2px 2px 0px #000000;
+  z-index: 2;
+}
+
+@keyframes riseAndFade {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-40px); }
+}
+
+/* Estilo para la descripción */
+.farming-description {
+  width: 40%;
+  background: rgba(50, 20, 60, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid #FFD44F;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.8);
+  font-family: 'Press Start 2P', cursive;
+  color: #FFD44F;
+  line-height: 1.4;
+  font-size: 0.9rem;
+  text-align: justify;
+  animation: fadeInUp 1s ease;
+  z-index: 2;
+}
+
+.farming-description:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Estilo para el pie de la sección */
+.farming-footer {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0px; /* Eliminado margen inferior */
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  position: relative; /* Permite ajustar la posición con respecto al contenedor */
+  top: -30px; /* Moverlo más arriba */
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceVideo {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  from { text-shadow: 4px 4px 10px #FFD44F; }
+  to { text-shadow: 4px 4px 20px #FFB347; }
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 1024px) {
+  .farming-content-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .farming-video-container,
+  .farming-description {
+    width: 90%;
+  }
+
+  .farming-description {
+    text-align: center;
+  }
+
+  .farming-content h2 {
+    font-size: 3rem;
+  }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .farming-video-container {
+    width: 80%;
+  }
+
+  .farming-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .farming-description {
+    font-size: 0.85rem;
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .farming-content h2 {
+    font-size: 2rem;
+  }
+
+  .farming-description {
+    font-size: 0.8rem;
+  }
+
+
+  .farming-footer {
+    top: -60px; /* Ajuste adicional para pantallas móviles */
+    font-size: 0.9rem;
+  }
+}
