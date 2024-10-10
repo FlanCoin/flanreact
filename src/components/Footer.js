@@ -25,13 +25,9 @@ const Footer = () => {
       <div className="footer-background"></div> {/* Fondo con la imagen */}
 <div className="footer-content">
   <p className="rights-text">
-    <strong>&copy; 2024 FlanCraft. Todos los derechos reservados. La moneda del futuro, hoy.</strong>
+    <strong>&copy; 2024 FlanCraft. All rights reserved. The currency of the future, today.</strong>
   </p>
-  <div className="footer-links">
-    <a href="/flancraft-universo"><strong>Explora el Universo</strong></a>
-    <a href="/faq"><strong>FAQ</strong></a>
-    <a href="/soporte"><strong>Soporte</strong></a>
-  </div>
+
 </div>
     </motion.footer>
   );

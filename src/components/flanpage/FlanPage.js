@@ -250,61 +250,61 @@ return (
     <h2 className="roadmap-header">Roadmap</h2>
     <div className="roadmap-timeline">
         <div className="roadmap-card card-1">
-            <h3>Fase 1: Fundamentos de FlanCoin</h3>
+            <h3>Phase 1: FlanCoin Foundations</h3>
             <img src={require('../../assets/card1.gif')} alt="Imagen de Fase 1" />
             <p>
-                El viaje comenzó con el lanzamiento oficial de $FLAN, vinculado a nuestro servidor FlanCraft, 
-                donde los jugadores pudieron comenzar a utilizar la moneda en el ecosistema. 
-                El lanzamiento ha permitido construir una base sólida de usuarios y confianza en la comunidad.
+                The journey began with the official launch of $FLAN, linked to our FlanCraft server,
+                where players could start using the currency within the ecosystem.
+                The launch has enabled the building of a solid user base and trust within the community.
             </p>
-            
         </div>
-        
+
         <div className="roadmap-card card-2">
-            <h3>Fase 2: Expansión del Ecosistema $FLAN</h3>
+            <h3>Phase 2: Expansion of the $FLAN Ecosystem</h3>
             <img src={require('../../assets/card2.gif')} alt="Imagen de Fase 2" />
             <p>
-                Tras el lanzamiento inicial, expandiremos el uso de $FLAN más allá del juego, 
-                permitiendo que los usuarios adquieran bienes digitales exclusivos, como skins y arte dentro del universo FlanCraft.
-                Además, se habilitarán las primeras funcionalidades del sistema de staking, 
-                incentivando a los usuarios a mantener sus $FLAN a cambio de recompensas dentro del servidor.
+                After the initial launch, we will expand the use of $FLAN beyond the game,
+                allowing users to acquire exclusive digital goods such as skins and art within the FlanCraft universe.
+                Additionally, the first staking system functionalities will be enabled,
+                encouraging users to hold their $FLAN in exchange for rewards within the server.
             </p>
         </div>
-        
+
         <div className="roadmap-card card-3">
-            <h3>Fase 3: Lanzamiento del FlanMarket</h3>
+            <h3>Phase 3: Launch of FlanMarket</h3>
             <img src={require('../../assets/card3.gif')} alt="Imagen de Fase 3" />
             <p>
-                ¡Es hora de lanzar FlanMarket! Una plataforma de NFTs donde los usuarios podrán comprar, 
-                vender y crear NFTs únicos utilizando $FLAN. Este marketplace estará completamente vinculado a nuestra moneda, 
-                incentivando el uso de $FLAN dentro del ecosistema NFT. 
-                Además, lanzaremos promociones exclusivas para los primeros participantes y artistas de la comunidad.
+                It's time to launch FlanMarket! An NFT platform where users can buy, sell, and create unique NFTs using $FLAN.
+                This marketplace will be fully integrated with our currency,
+                incentivizing the use of $FLAN within the NFT ecosystem.
+                Additionally, we will launch exclusive promotions for early participants and community artists.
             </p>
         </div>
-        
+
         <div className="roadmap-card card-4">
-            <h3>Fase 4: Expansión y Listado en CEX</h3>
+            <h3>Phase 4: Expansion and Listing on CEX</h3>
             <img src={require('../../assets/card4.gif')} alt="Imagen de Fase 4" />
             <p>
-                La expansión continúa con la mirada puesta en el listado de $FLAN en un exchange centralizado (CEX), 
-                abriendo nuevas oportunidades de liquidez y acceso a inversores externos. 
-                Estamos en contacto con varios exchanges medianos, y trabajaremos en las colaboraciones necesarias 
-                para que $FLAN sea aceptado en un CEX, además de expandir la adopción fuera del servidor. ¡El futuro está lleno de oportunidades!
+                The expansion continues with a focus on listing $FLAN on a centralized exchange (CEX),
+                opening new opportunities for liquidity and access to external investors.
+                We are in contact with several mid-sized exchanges and will work on the necessary collaborations
+                to get $FLAN listed on a CEX, while also expanding adoption outside of the server. The future is full of opportunities!
             </p>
         </div>
-        
+
         <div className="roadmap-card card-5">
-            <h3>Fase 5: Alianzas Estratégicas y Expansión Global</h3>
+            <h3>Phase 5: Strategic Partnerships and Global Expansion</h3>
             <img src={require('../../assets/card5.gif')} alt="Imagen de Fase 5" />
             <p>
-                Buscamos alianzas con otros proyectos de criptomonedas y NFT que complementen el ecosistema de $FLAN. 
-                Esta fase se centrará en crear asociaciones estratégicas para ampliar el alcance de nuestra moneda y 
-                aumentar su utilidad en otros ecosistemas. Además, seguiremos expandiendo el marketplace con nuevos 
-                artistas y creadores, generando valor para los poseedores de $FLAN.
+                We are seeking partnerships with other cryptocurrency and NFT projects that complement the $FLAN ecosystem.
+                This phase will focus on creating strategic alliances to expand the reach of our currency and
+                increase its utility in other ecosystems. Additionally, we will continue to expand the marketplace with new
+                artists and creators, generating value for $FLAN holders.
             </p>
         </div>
     </div>
 </section>
+
 
       {/* Who is Flan Section */}
       <section className="who-is-flan">
@@ -332,13 +332,13 @@ return (
       <div className="flannomics-header">
         <div className="flannomics-text-coin">
           <img src={coinImg} alt="Flan Coin" className="flannomics-coin" />
-          <h2>Economía de FlanCoin</h2>
+          <h2>FlanCoin Economy</h2>
         </div>
       </div>
 
       {/* Sección izquierda: descripción y wallets */}
       <div className="flannomics-left">
-        <p>497 millones de flanes, 497 millones de tokens listos para conquistar el mundo.</p>
+        <p>497 million Flans, 497 million tokens ready to conquer the world.</p>
         <div className="wallet-buttons">
           <a href="https://solscan.io/account/4gEAsRFfJgKi7DNpVQEGxJnEjhUtBWGUmABebrbPRn5G" target="_blank" rel="noopener noreferrer">
             <button className="wallet-button">👥 TEAM: 4gEAsRFfJgKi7DNpVQEGxJnEjhUtBWGUmABebrbPRn5G</button>
@@ -358,7 +358,7 @@ return (
       {/* Sección derecha: descripción adicional, ticker y suministro */}
       <div className={`flannomics-right ${isMobile ? 'mobile' : ''}`}>
         <div className="flannomics-description">
-          Usa $FLAN en nuestro nuevo Marketplace y en la tienda con un 50% de descuento. ¡Consigue NFTs únicos y otros beneficios exclusivos!
+        Use $FLAN in our new Marketplace and in the store with a 50% discount. Get unique NFTs and other exclusive benefits!
         </div>
         <div className="flannomics-ticker">Ticker</div>
         <div className="flannomics-ticker-flan">
@@ -366,7 +366,7 @@ return (
             <span key={index} style={{ '--i': index + 1 }}>{char}</span>
           ))}
         </div>
-        <div className="flannomics-supply">Suministro</div>
+        <div className="flannomics-supply">Supply</div>
         <div className="flannomics-supply-total">
           {'497.000.000'.split('').map((char, index) => (
             <span key={index} style={{ '--i': index + 1 }}>{char}</span>
@@ -382,7 +382,7 @@ return (
 
   <div className="farming-content">
     <h2>FlanFarming</h2>
-    <p>¡Cultiva tu éxito con FlanFarming y gana recompensas en $FLAN mientras descansas!</p>
+    <p>Grow your success with FlanFarming and earn rewards in $FLAN while you rest!</p>
   </div>
 
   <div className="farming-content-columns">
@@ -405,13 +405,13 @@ return (
 
     <div className="farming-description">
       <p>
-        ¡FlanFarming es una manera fácil y divertida de ganar $FLAN! Simplemente ingresa a nuestra pool AFK y gana 7 $FLAN cada 10 minutos. Usa el comando <strong>/afk</strong> y deja que tu personaje recoja recompensas mientras haces una pausa. ¡Retira tus flanes y úsalos para lo que quieras!
+      FlanFarming is an easy and fun way to earn $FLAN! Simply join our AFK pool and earn 7 $FLAN every 10 minutes. Use the command <strong>/afk</strong> and let your character collect rewards while you take a break. Withdraw your Flans and use them for whatever you want!
       </p>
     </div>
   </div>
 
   <div className="farming-footer">
-    <p>Conviértete en un verdadero granjero de flanes y ¡acumula riquezas digitales!</p>
+    <p>Become a true Flan farmer and accumulate digital riches!</p>
   </div>
 </section>
 

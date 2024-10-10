@@ -46,9 +46,7 @@ const MobileNavbar = () => {
 <NavLink to="/flan" className="navbar-link mobile-flan-button" activeclassname="active" onClick={closeMenu}>
   Flan
 </NavLink>
-<NavLink to="/marketplace" className="navbar-link mobile-marketplace-button" activeclassname="active" onClick={closeMenu}>
-  <FontAwesomeIcon icon={faStoreAlt} /> Marketplace
-</NavLink>
+
 
 
         {/* Separador de Sección */}

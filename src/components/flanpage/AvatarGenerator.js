@@ -221,10 +221,10 @@ const AvatarGenerator = () => {
             </div>
             <div className="controls">
               <button className="random-button" onClick={generateRandomAvatar}>
-                Generar Aleatorio
+                Random Avatar
               </button>
               <button className="download-button" onClick={downloadAvatar}>
-                Descargar Avatar
+                Download Avatar
               </button>
               <button
                 className="clear-button"
@@ -242,7 +242,7 @@ const AvatarGenerator = () => {
                   })
                 }
               >
-                Limpiar
+                Clear
               </button>
             </div>
           </div>
