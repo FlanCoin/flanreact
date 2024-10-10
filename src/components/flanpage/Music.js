@@ -19,6 +19,13 @@ const [errorIndex, setErrorIndex] = useState(null); // Estado para la canción c
 const audioContextRef = useRef(null);
 const sourceNodeRef = useRef(null);
 
+// Ajustar el volumen de las canciones al 30%
+  useEffect(() => {
+    audioRefs.current.forEach((audio) => {
+      audio.volume = 0.3;
+    });
+  }, []);
+  
 useEffect(() => {
   if (playingSong !== null) {
     const audio = audioRefs.current[playingSong];

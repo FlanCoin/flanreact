@@ -23,12 +23,15 @@ const Footer = () => {
       onMouseLeave={handleMouseLeave}
     >
       <div className="footer-background"></div> {/* Fondo con la imagen */}
-<div className="footer-content">
-  <p className="rights-text">
-    <strong>&copy; 2024 FlanCraft. All rights reserved. The currency of the future, today.</strong>
-  </p>
-
-</div>
+      <div className="footer-content">
+        <p className="rights-text">
+          <strong>&copy; 2024 FlanCraft. All rights reserved. The currency of the future, today.</strong>
+        </p>
+        {/* Nueva sección de versión */}
+        <div className="version-container">
+          <span className="version-text">Beta Version 1.0.0</span>
+        </div>
+      </div>
     </motion.footer>
   );
 };

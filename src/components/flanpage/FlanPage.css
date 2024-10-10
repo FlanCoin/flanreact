@@ -4,11 +4,10 @@
 /* General Styles */
 .flan-page-section {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  position: relative;
-  min-height: 100vh;
+  align-items: center;
+  width: 100vw;
+  height: 100vh; /* Asegura que ocupe el 100% del viewport */
   overflow: hidden;
 }
 
@@ -40,7 +39,7 @@
 
 /* Title */
 .flan-title {
-  font-size: 6vw;
+  font-size: 5vw;
   margin: 0;
   color: #FDD622;
   font-family: 'Press Start 2P', 'Minecraft', cursive;
@@ -73,35 +72,54 @@
   }
 }
 
-
-/* Contenedor en columna para subtítulo y botón */
-.play2earn-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0vh;
-  z-index: 3;
-}
-/* Contenedor horizontal para subtítulo, botón y estrellas */
-.play2earn-row {
+.contract-box {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 1vh; /* Reducir el margen superior */
-  z-index: 3;
+  justify-content: space-between;
+  padding: 10px 20px;
+  width: fit-content;
+  margin: 20px auto;
+  border: 3px solid black;
+  background-color: white;
+  font-family: 'Press Start 2P', cursive;
 }
 
-/* Play2earn Subtítulo */
-.play2earn {
-  font-size: 4vw;
-  font-family: 'Pacifico', cursive;
-  color: #F0F0F0;
-  margin: 2 05 1vh 0; /* Separar subtítulo del botón */
-  margin-right: 60%;
-  text-shadow: 2px 2px 0 black, 4px 4px 0 #333333, 0 0 10px rgba(0, 0, 0, 0.5);
-  animation: glow 2s ease-in-out infinite alternate;
+.contract-text {
+  margin-right: 10px;
+  font-size: 14px;
+  color: black;
 }
+
+.copy-button {
+  padding: 5px 12px;
+  border: 2px solid black;
+  background: yellow;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.copy-button:active {
+  transform: translateY(2px); /* Efecto de hundimiento */
+}
+
+.copy-button:hover {
+  background: #ffd700;
+}
+
+.copy-message {
+  background: rgba(255, 215, 0, 0.9);
+  color: black;
+  font-size: 12px;
+  border: 2px solid black;
+  padding: 5px 10px;
+  margin: 0px;
+  text-align: center;
+  width: fit-content;
+  font-family: 'Press Start 2P', cursive;
+}
+
 
 /* Buy Flan Button */
 .buy-flan-button {
@@ -114,7 +132,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s, background-color 0.3s;
   box-shadow: 8px 8px 0 #191919;
   font-family: 'Nerko One', cursive;
-  margin-left: -10vw; /* Aumentar espacio entre botón y subtítulo */
+  margin-left: 5vw; /* Aumentar espacio entre botón y subtítulo */
 }
 
 /* Contenedor del botón y estrellas */
@@ -129,15 +147,6 @@
 .buy-flan-button:active {
   transform: translate(8px, 8px);
   box-shadow: none;
-}
-
-/* Stars Image */
-.stars-img {
-  width: 6vw; /* Tamaño ajustable */
-  height: auto;
-  position: relative;
-  top: -4vh; /* Ajustar la posición más alta */
-  margin-left: 0vw;
 }
 
 
@@ -258,59 +267,36 @@
   }
 }
 
-/* Monedas que caen */
-.falling-coin {
-  position: absolute;
-  top: 10%;
-  width: 30px;
-  height: 30px;
-  z-index: 10;
-  pointer-events: none;
-}
-
-@keyframes coinFall {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(500px);
-    opacity: 0;
-  }
-}
-
 /* Contador de Flanes */
 .flan-counter {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2vw;
-  margin-left: 20vw; /* Separación respecto a #Play2Earn */
   background: #212529; /* Fondo oscuro */
   border: 4px solid #FFD700; /* Borde dorado */
   padding: 10px 10px;
+  margin-top: 15px;
   font-family: 'Press Start 2P', cursive; /* Estilo 8-bit */
   font-size: 18px; /* Ajustar tamaño de fuente */
   color: #FFF;
   box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); /* Resplandor dorado */
   text-shadow: 2px 2px #000; /* Sombras en el texto */
   border-radius: 10px; /* Esquinas redondeadas */
-  position: absolute;
   z-index: 3;
+}
+.flan-counter-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Espacio entre el contador y el botón */
+  margin-top: 15px;
 }
 
 .flan-counter img {
   margin-left: 1px; /* Espacio entre texto y la imagen */
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)); /* Sombra para el icono */
-}
-
-/* Ajustes para Play2Earn y su contenedor */
-.play2earn {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Espaciado entre #Play2Earn y el contador */
 }
 
 /* Moneda que cae: Animación */
@@ -327,114 +313,177 @@
   animation: coinJump 1s linear forwards; /* Nueva animación para las monedas */
 }
 
-/* Animación para las monedas */
 @keyframes coinJump {
   0% {
-    transform: translateY(0) scale(0.7);
-    opacity: 0;
-  }
-  25% {
-    transform: translateY(-100px) scale(1.2); /* Sube y aumenta tamaño */
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
-  50% {
-    transform: translateY(-150px) scale(1.2); /* Punto más alto */
+  30% {
+    transform: translateY(-80px) scale(1.2); /* Efecto de salto */
   }
-  75% {
-    transform: translateY(-100px) scale(1.2); /* Vuelve a bajar */
+  60% {
+    transform: translateY(0) scale(1); /* Vuelve a la posición inicial */
   }
   100% {
-    transform: translateY(0) scale(0.7);
-    opacity: 0;
+    transform: translateY(100px) scale(0.8);
+    opacity: 0; /* Desaparece */
   }
 }
 
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+  .flan-title { font-size: 8vw; }
+  .buy-flan-button { padding: 2vw 4vw; font-size: 2vw; }
+  .cloud { width: 22vw; }
+  .cloud5, .cloud6, .cloud7 { width: 30vw; }
+  .flan-counter {
+    padding: 8px 8px;
+    font-size: 16px;
+  }
+  .contract-box {
+    width: 80vw; /* Asegura que el contenedor tenga un ancho adecuado */
+    padding: 10px 15px;
+    font-size: 12px;
+    text-align: center; /* Centra el texto */
+    border-width: 2px;
+    overflow: hidden; /* Evita el desbordamiento */
+  }
+  .contract-text {
+    margin: 5px 0;
+    word-wrap: break-word; /* Ajusta el texto para que no se desborde */
+  }
+  .copy-button {
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+}
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .flan-title { font-size: 10vw; }
-  .play2earn { font-size: 6vw; }
-  .buy-flan-button { padding: 2vw 4vw; font-size: 2vw; }
-  .stars-img { width: 10vw; top: -2vh; }
-  
-  /* Ajustes de las nubes para pantallas medianas */
-  .cloud {
-    width: 25vw; /* Aumentar el tamaño de las nubes en dispositivos medianos */
-  }
-  .cloud5, .cloud6, .cloud7 {
-    width: 35vw;
-  }
+  .buy-flan-button { padding: 3vw 5vw; font-size: 3vw; }
+  .cloud { width: 26vw; }
+  .cloud5, .cloud6, .cloud7 { width: 35vw; }
   .flan-counter {
+    padding: 7px 7px;
+    font-size: 14px;
+  }
+  .contract-box {
+    width: 85vw; /* Ancho ajustado */
+    padding: 8px 12px;
+    font-size: 11px;
+    overflow: hidden;
+  }
+  .contract-text {
+    margin: 4px 0;
+    font-size: 9px;
+    word-wrap: break-word;
+  }
+  .copy-button {
+    padding: 5px 10px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 600px) {
+  .flan-title { font-size: 12vw; }
+  .buy-flan-button { padding: 4vw 6vw; font-size: 4vw; }
+  .cloud { width: 28vw; }
+  .cloud5, .cloud6, .cloud7 { width: 38vw; }
+  .flan-counter {
+    padding: 6px 6px;
     font-size: 12px;
-    padding: 8px;
-    margin-top: 3vw;
-    margin-left: 21vh;
+  }
+  .contract-box {
+    width: 90vw; /* Ancho máximo */
+    padding: 8px 12px;
+    font-size: 10px;
+    overflow: hidden;
+  }
+  .contract-text {
+    margin: 3px 0;
+    font-size: 8px;
+    word-wrap: break-word;
+  }
+  .copy-button {
+    padding: 4px 8px;
+    font-size: 8px;
   }
 }
 
 @media (max-width: 480px) {
   .flan-title { font-size: 14vw; }
-  .play2earn { font-size: 9vw; }
-  .buy-flan-button { padding: 3vw 5vw; font-size: 3vw; }
-  .stars-img { width: 12vw; top: -1vh; }
-  
-  /* Ajustes de las nubes para pantallas pequeñas */
-  .cloud {
-    width: 30vw; /* Aumentar aún más el tamaño de las nubes */
-  }
-  .cloud5, .cloud6, .cloud7 {
-    width: 45vw;
-  }
+  .buy-flan-button { padding: 5vw 7vw; font-size: 5vw; }
+  .cloud { width: 30vw; }
+  .cloud5, .cloud6, .cloud7 { width: 45vw; }
   .flan-counter {
-    font-size: 10px; /* Tamaño de fuente ajustado */
-    padding: 6px;
-    margin-top: 4vw; /* Ajuste para separarlo del resto del contenido */
-    margin-left: 26vh; /* Ajuste proporcional del margen izquierdo */
+    padding: 5px 5px;
+    font-size: 11px;
+  }
+  .contract-box {
+    width: 80vw; /* Ajuste final para móviles pequeños */
+    padding: 6px 10px;
+    font-size: 9px;
+    overflow: hidden;
+  }
+  .contract-text {
+    margin: 2px 0;
+    font-size: 7px;
+    word-wrap: break-word;
+  }
+  .copy-button {
+    padding: 3px 6px;
+    font-size: 7px;
   }
 }
 
-/* Pantallas muy pequeñas, móviles más antiguos */
-@media (max-width: 320px) {
-  .flan-title { font-size: 16vw; }
-  .play2earn { font-size: 12vw; }
-  .buy-flan-button { padding: 3vw 5vw; font-size: 4vw; }
-  .stars-img { width: 15vw; top: -1vh; }
-  .cloud1, .cloud2, .cloud3, .cloud4 { width: 35vw; } /* Nubes más grandes para pantallas pequeñas */
-  .flan-counter {
-    font-size: 10px; /* Tamaño de fuente ajustado */
-    padding: 6px;
-    margin-top: 4vw; /* Ajuste para separarlo del resto del contenido */
-    margin-left: 26vh; /* Ajuste proporcional del margen izquierdo */
-  }
-}
-
-
-/* Pantallas de 375px, móviles medianos */
 @media (max-width: 375px) {
-  .flan-title { font-size: 14vw; }
-  .play2earn { font-size: 10vw; }
-  .buy-flan-button { padding: 3vw 5vw; font-size: 3vw; }
-  .stars-img { width: 14vw; top: -1vh; }
-  .cloud1, .cloud2, .cloud3, .cloud4 { width: 30vw; }
+  .flan-title { font-size: 16vw; }
+  .buy-flan-button { padding: 3vw 5vw; font-size: 4vw; }
+  .cloud { width: 32vw; }
+  .cloud5, .cloud6, .cloud7 { width: 50vw; }
   .flan-counter {
-    font-size: 9px; /* Tamaño de fuente ajustado */
-    padding: 5px;
-    margin-top: 4vw; /* Ajuste para separarlo del resto del contenido */
-    margin-left: 26vh; /* Ajuste proporcional del margen izquierdo */
+    padding: 4px 4px;
+    font-size: 10px;
+  }
+  .contract-box {
+    width: 80vw; /* Ancho completo */
+    padding: 5px 8px;
+    font-size: 8px;
+    overflow: hidden;
+  }
+  .contract-text {
+    margin: 1px 0;
+    font-size: 6px;
+    word-wrap: break-word;
+  }
+  .copy-button {
+    padding: 3px 5px;
+    font-size: 6px;
   }
 }
 
-/* Pantallas de 430px, móviles modernos */
-@media (max-width: 430px) {
-  .flan-title { font-size: 12vw; }
-  .play2earn { font-size: 9vw; }
-  .buy-flan-button { padding: 3vw 5vw; font-size: 3vw; }
-  .stars-img { width: 12vw; top: -1vh; }
-  .cloud1, .cloud2, .cloud3, .cloud4 { width: 28vw; }
+@media (max-width: 320px) {
+  .flan-title { font-size: 18vw; }
+  .buy-flan-button { padding: 7vw 9vw; font-size: 7vw; }
+  .cloud { width: 35vw; }
+  .cloud5, .cloud6, .cloud7 { width: 55vw; }
   .flan-counter {
-    font-size: 7px; /* Tamaño de fuente ajustado */
-    padding: 4px;
-    margin-top: 4vw; /* Ajuste para separarlo del resto del contenido */
-    margin-left: 26vh; /* Ajuste proporcional del margen izquierdo */
+    padding: 3px 3px;
+    font-size: 9px;
+  }
+  .contract-box {
+    width: 100vw; /* Usa todo el ancho disponible */
+    padding: 4px 6px;
+    font-size: 7px;
+    overflow: hidden;
+  }
+  .contract-text {
+    margin: 0;
+    font-size: 5px;
+    word-wrap: break-word;
+  }
+  .copy-button {
+    padding: 2px 4px;
+    font-size: 5px;
   }
 }

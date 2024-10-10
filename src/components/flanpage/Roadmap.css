@@ -1,5 +1,5 @@
 .roadmap-section {
-    height: 270vh; /* Espacio extra para permitir scroll */
+    height: 340vh; /* Espacio extra para permitir scroll */
     position: relative;
     background: linear-gradient(to bottom, #47677D 10%, #5089A6, #4A638B, #414775); /* Gradiente de fondo */
     display: flex;
@@ -163,9 +163,13 @@
 }
 
 .card-1 {
-    top: 10vh;  /* Mantiene la carta en la parte superior */
+    top: 5vh;  /* Mantiene la carta en la parte superior */
     background-color: #1E1E1E;
     border-color: #ffffff;
+}
+
+.card-1 h3 {
+    color: #FFFF;
 }
 
 .card-1 img {
@@ -188,7 +192,7 @@
 }
 
 .card-2 {
-    top: 45vh;  /* Segunda carta justo debajo del viewport */
+    top: 75vh;  /* Segunda carta justo debajo del viewport */
     background-color: #87CEEB;
     border-color: #000;
 }
@@ -213,7 +217,7 @@
 }
 
 .card-3 {
-    top: 80vh;  /* Tercera carta más abajo */
+    top: 140vh;  /* Tercera carta más abajo */
     background-color: #48A9A6;
     border-color: #000;
     color: #000;
@@ -239,7 +243,7 @@
 }
 
 .card-4 {
-    top: 120vh;  /* Cuarta carta */
+    top: 200vh;  /* Cuarta carta */
     background-color: #BFCBDC;
     border-color: #000;
     color: #000;
@@ -265,7 +269,7 @@
 }
 
 .card-5 {
-    top: 160vh;  /* Cuarta carta */
+    top: 250vh;  /* Cuarta carta */
     background-color: #282A34;
     border-color: #000;
     color: #FFF;

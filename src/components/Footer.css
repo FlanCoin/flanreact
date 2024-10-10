@@ -67,23 +67,83 @@
   color: #FFCC33; /* Cambio de color al hacer hover */
 }
 
-/* Ajuste para pantallas más pequeñas */
+.rights-text {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.version-container {
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.version-text {
+  color: #ffeb3b;
+  font-weight: bold;
+}
+/* Ajustes responsivos */
 @media (max-width: 768px) {
   .footer {
     height: 100px;
+    flex-direction: column;
     padding: 10px;
-  }
-
-  .footer.closed {
-    transform: translateY(90%); /* Oculta más del footer */
   }
 
   .footer-content {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 10px 0;
+  }
+
+  .rights-text {
+    font-size: 10px;
+    margin-bottom: 5px;
   }
 
   .footer-links {
     gap: 10px;
+    margin-bottom: 5px;
+  }
+
+  .footer-links a {
+    font-size: 10px;
+  }
+
+  .version-container {
+    position: static; /* Elimina el posicionamiento absoluto */
+    margin-top: 5px; /* Añade un pequeño margen superior */
+    padding: 3px 8px;
+  }
+
+  .version-text {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    height: 120px;
+  }
+
+  .footer-content {
+    padding: 5px;
+  }
+
+  .rights-text {
+    font-size: 8px;
+  }
+
+  .footer-links a {
+    font-size: 8px;
+  }
+
+  .version-text {
+    font-size: 8px;
   }
 }
