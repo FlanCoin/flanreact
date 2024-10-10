@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './FlanPage.css';
 import { ref, onValue, runTransaction } from "firebase/database";
 import { database } from '../../firebase';
+
 import cloud1 from '../../assets/cloud1.webp';
 import cloud2 from '../../assets/cloud2.webp';
 import cloud3 from '../../assets/cloud3.webp';
@@ -22,8 +23,9 @@ const FlanPageSection = () => {
 
   const contractAddress = "Fn5TpxS4H3jwV5jwD9HYoEDvxnNxDyEknwKaq2Mn3fbf";
 
-  // Configurar el contexto de audio y cargar los sonidos
   useEffect(() => {
+    if (typeof window === 'undefined') return; // No se ejecuta en el servidor
+
     audioContext.current = new (window.AudioContext || window.webkitAudioContext)();
     gainNode.current = audioContext.current.createGain();
     gainNode.current.gain.value = 0.05; // Volumen ajustado para todos los sonidos
@@ -46,6 +48,8 @@ const FlanPageSection = () => {
   }, []);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return; // Solo en entorno de navegador
+
     const clickCountRef = ref(database, "clickCount");
     onValue(clickCountRef, (snapshot) => {
       const data = snapshot.val();
@@ -56,6 +60,8 @@ const FlanPageSection = () => {
   }, []);
 
   const handleTitleClick = () => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
     const clickCountRef = ref(database, "clickCount");
     runTransaction(clickCountRef, (currentClicks) => {
       return (currentClicks || 0) + 1;
@@ -79,10 +85,9 @@ const FlanPageSection = () => {
     }, 1500);
   };
 
-  // Función para reproducir el sonido con control de AudioContext
   const playSound = () => {
+    if (!audioContext.current) return;
     try {
-      // Asegurarse de que el contexto esté activo antes de reproducir el sonido
       if (audioContext.current.state === 'suspended') {
         audioContext.current.resume().then(() => {
           playRandomSound();
@@ -98,7 +103,6 @@ const FlanPageSection = () => {
   const playRandomSound = () => {
     const randomIndex = Math.floor(Math.random() * soundBuffers.current.length);
     const soundBuffer = soundBuffers.current[randomIndex];
-
     if (!soundBuffer || !audioContext.current) return;
 
     try {
@@ -113,6 +117,8 @@ const FlanPageSection = () => {
   };
 
   const handleCopyContract = () => {
+    if (typeof navigator === 'undefined' || !navigator.clipboard) return;
+
     navigator.clipboard.writeText(contractAddress).then(() => {
       setCopyMessage("¡Contrato copiado!");
       setTimeout(() => setCopyMessage(""), 2000);

@@ -4,10 +4,9 @@ import './WhoIsFlan.css';
 import './Flannomics.css';
 import './FlanFarming.css';
 import './BannerSection.css';
-
 import './HowToBuy.css';
 import './Separador.css';
-
+import WalletConfig from './WalletConfig'; // Importa el WalletConfig
 import RoadmapSection from './RoadmapSection'; // Importa el nuevo componente
 import AvatarGenerator from "./AvatarGenerator";
 import Music from "./Music";
@@ -86,6 +85,7 @@ const FlanPage = () => {
   }, []);
 
 return (
+  <WalletConfig> {/* Envolver toda la estructura con WalletConfig */}
   <div className="flan-page">
      {/* Nueva Sección: FlanPage */}
      <section className="flan-page-section">       
@@ -256,6 +256,7 @@ return (
           <Music />
       </section>
     </div>
+    </WalletConfig>
   );
 };
 

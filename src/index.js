@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Importa WalletConfig desde el archivo correspondiente
+import { WalletConfig } from './components/flanpage/WalletConfig'; // Ajusta el path según la ubicación de WalletConfig.js
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* Envolvemos la aplicación dentro de WalletConfig */}
+    <WalletConfig>
+      <App />
+    </WalletConfig>
   </React.StrictMode>
 );
 
