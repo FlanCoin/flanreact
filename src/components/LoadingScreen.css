@@ -1,10 +1,3 @@
-body.loading-active {
-    overflow: hidden;
-    height: 100vh; /* Ajuste para prevenir scroll */
-    touch-action: none; /* Desactivar interacciones táctiles */
-    position: relative;
-  }
-  
 /* Fondo del loading */
 .loading-screen {
     position: fixed;
@@ -25,8 +18,8 @@ body.loading-active {
   /* Desactiva el scroll general del body mientras carga */
   body.loading-active {
     overflow: hidden;
-    height: 100vh;
-    touch-action: none;
+    height: 100vh; /* Ajuste para prevenir scroll */
+    touch-action: none; /* Desactivar interacciones táctiles */
   }
   
   /* Contenedor del contenido del loading */
@@ -34,21 +27,9 @@ body.loading-active {
     text-align: center;
     color: #ffd700; /* Color del texto */
     animation: flicker 1.5s infinite;
-    transform: scale(1.1); /* Tamaño general aumentado */
   }
   
-  /* Efecto flicker en el texto */
-  @keyframes flicker {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.6;
-    }
-  }
-  
-  /* Imagen de carga (ajustada para verse más grande) */
+  /* Imagen de carga (responsiva) */
   .loading-image {
     width: 200px; /* Ajuste inicial de tamaño */
     height: auto;
@@ -56,27 +37,6 @@ body.loading-active {
     animation: bounce 1.2s infinite ease-in-out;
   }
   
-  /* Animación de rebote para la imagen */
-  @keyframes bounce {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-15px); /* Mayor amplitud de rebote */
-    }
-  }
-  
-  /* Texto del loading */
-  .loading-text {
-    font-family: 'Press Start 2P', cursive; /* Fuente 8 bits */
-    font-size: 22px; /* Tamaño del texto ajustado */
-    color: #7dcbea;
-    text-shadow: 2px 2px #000;
-    letter-spacing: 2px; /* Espaciado entre letras */
-  }
-  
-  /* Responsivo para pantallas pequeñas */
   @media (max-width: 768px) {
     .loading-image {
       width: 150px; /* Reducir tamaño de la imagen */

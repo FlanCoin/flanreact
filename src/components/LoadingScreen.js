@@ -1,49 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import './LoadingScreen.css';
-import loadingImage from '../assets/loading2bit.webp';
+import loadingImage from '../assets/loading.gif'; // Asegúrate de que la imagen exista y sea accesible
 
 const LoadingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Añadir la clase al body para desactivar el scroll
+    // Añadir la clase al body para desactivar el scroll en la pantalla de carga
     document.body.classList.add('loading-active');
 
-    // Comprueba si la página ya está lista
-    const checkPageLoaded = () => {
-      if (document.readyState === 'complete') {
-        setIsLoading(false);
-        document.body.classList.remove('loading-active');
-      }
-    };
-
-    // Maneja el evento de carga completa
+    // Función para manejar la carga completa de la página
     const handleLoad = () => {
+      console.log("Carga completa detectada"); // Debug para verificar la carga en móvil
       setIsLoading(false);
       document.body.classList.remove('loading-active');
     };
 
-    // Verifica si la página ya está completamente cargada
+    // Verifica si el documento ya está listo y completamente cargado
     if (document.readyState === 'complete') {
       handleLoad();
     } else {
-      window.addEventListener('load', handleLoad);
-      document.addEventListener('readystatechange', checkPageLoaded);
+      window.addEventListener('load', handleLoad); // Detectar cuando se completa la carga
     }
 
-    // Cleanup de eventos
     return () => {
-      window.removeEventListener('load', handleLoad);
-      document.removeEventListener('readystatechange', checkPageLoaded);
-      document.body.classList.remove('loading-active');
+      window.removeEventListener('load', handleLoad); // Eliminar el evento de carga para evitar fugas de memoria
     };
   }, []);
 
-  if (!isLoading) return null; // Oculta el componente si no está cargando
+  // Si la página ya está cargada, oculta la pantalla de carga
+  if (!isLoading) return null;
 
   return (
     <div className="loading-screen">
       <div className="loading-content">
+        {/* Imagen 8 bits con ajustes responsivos */}
         <img src={loadingImage} alt="Cargando..." className="loading-image" />
         <h1 className="loading-text">Cargando...</h1>
       </div>
