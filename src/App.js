@@ -1,5 +1,6 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoadingScreen from './components/LoadingScreen'; // Importar el componente de carga
 import Navbar from './components/Navbar';
 import MobileNavbar from './components/MobileNavbar';
 import Footer from './components/Footer';
@@ -42,6 +43,7 @@ function App() {
 
   return (
     <Router>
+      <LoadingScreen />
       <SectionProvider> {/* Envolver toda la aplicación en el SectionProvider */}
         <div className="App">
           {/* Mostrar el navbar correspondiente según el tamaño de la pantalla */}

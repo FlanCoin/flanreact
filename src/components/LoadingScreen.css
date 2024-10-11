@@ -1,0 +1,62 @@
+/* Fondo del loading */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #1f1b2e; /* Fondo oscuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /* Contenedor del contenido del loading */
+  .loading-content {
+    text-align: center;
+    color: #ffd700; /* Color del texto */
+    animation: flicker 1.5s infinite;
+    transform: scale(1.1); /* Tamaño general aumentado */
+  }
+  
+  /* Efecto flicker en el texto */
+  @keyframes flicker {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+  
+  /* Imagen de carga (ajustada para verse más grande) */
+  .loading-image {
+    width: 250px; /* Ajustar a un tamaño más grande */
+    height: auto;
+    margin-bottom: 30px; /* Espaciado entre imagen y texto */
+    animation: bounce 1.2s infinite ease-in-out;
+  }
+  
+  /* Animación de rebote para la imagen */
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px); /* Mayor amplitud de rebote */
+    }
+  }
+  
+  /* Texto del loading (más grande y visualmente atractivo) */
+  .loading-text {
+    font-family: 'Press Start 2P', cursive; /* Fuente 8 bits */
+    font-size: 28px; /* Tamaño del texto aumentado */
+    color: #7dcbea;
+    text-shadow: 2px 2px #000;
+    letter-spacing: 2px; /* Espaciado entre letras */
+  }
+  
