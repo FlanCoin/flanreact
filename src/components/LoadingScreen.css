@@ -1,3 +1,10 @@
+body.loading-active {
+    overflow: hidden;
+    height: 100vh; /* Ajuste para prevenir scroll */
+    touch-action: none; /* Desactivar interacciones táctiles */
+    position: relative;
+  }
+  
 /* Fondo del loading */
 .loading-screen {
     position: fixed;
