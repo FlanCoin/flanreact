@@ -108,10 +108,6 @@ const ScrollNavigator = () => {
     touchStartY.current = event.touches[0].clientY;
   }, []);
 
-  const handleTouchMove = useCallback((event) => {
-    touchEndY.current = event.touches[0].clientY;
-  }, []);
-
   const handleTouchEnd = useCallback(() => {
     if (isTransitioning || !scrollEnabled) return;
 
@@ -165,7 +161,6 @@ const ScrollNavigator = () => {
     window.addEventListener('scroll', disableScroll, { passive: false });
 
     window.addEventListener('touchstart', handleTouchStart, { passive: false });
-    window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('touchend', handleTouchEnd, { passive: false });
 
     return () => {
@@ -176,7 +171,6 @@ const ScrollNavigator = () => {
       window.removeEventListener('scroll', disableScroll);
 
       window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
     };
   }, [
@@ -188,7 +182,6 @@ const ScrollNavigator = () => {
     navigateToSection,
     handleMiddleClickScroll,
     handleTouchStart,
-    handleTouchMove,
     handleTouchEnd,
   ]);
 

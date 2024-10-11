@@ -32,7 +32,9 @@
     border: 3px solid #00FFA3;
     border-radius: 12px;
     padding: 20px;
-    width: 300px;
+    width: 400px;
+    height: 400px; /* Añadir altura consistente */
+    box-sizing: border-box;
     text-align: center;
     color: #fff;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
@@ -64,29 +66,7 @@
     transform: scale(1.05);
     box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.8);
   }
-  
-  .jup-iframe-container {
-    margin-top: 50px;
-    width: 100%;
-    max-width: 800px;
-    height: 500px;
-    border: 0;
-    position: relative;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  
-  .jup-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-  
-  .jup-iframe-container:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.8);
-  }
+
   
   @keyframes fadeIn {
     0% {
@@ -102,4 +82,73 @@
   .how-to-buy-step {
     animation: fadeIn 0.6s ease-in-out;
   }
-  
+  /* Media queries para tablets (pantallas de 768px a 1024px) */
+@media (max-width: 1024px) {
+  .how-to-buy-step {
+      width: 300px; /* Reducir tamaño de los elementos */
+      height: auto; /* Ajustar altura dinámica */
+  }
+
+  .how-to-buy-header {
+      font-size: 2.5rem; /* Ajustar tamaño de fuente */
+  }
+
+  .how-to-buy-steps {
+      gap: 30px; /* Reducir el espacio entre elementos */
+  }
+}
+
+/* Media queries para dispositivos móviles (pantallas de hasta 768px) */
+@media (max-width: 768px) {
+  .how-to-buy-step {
+      width: 100%; /* Elemento a 100% del ancho */
+      padding: 15px;
+      margin-bottom: 20px; /* Añadir espacio entre bloques */
+  }
+
+  .how-to-buy-header {
+      font-size: 2rem; /* Ajustar el tamaño de fuente */
+  }
+
+  .how-to-buy-steps {
+      flex-direction: column; /* Poner elementos en columna */
+      align-items: stretch; /* Ajustar al ancho completo */
+  }
+
+  .how-to-buy-step img {
+      width: 100px; /* Reducir tamaño de imagen */
+  }
+
+  .how-to-buy-step h3 {
+      font-size: 1.2rem; /* Ajustar tamaño de título */
+  }
+
+  .how-to-buy-step p {
+      font-size: 0.8rem; /* Reducir tamaño de fuente de párrafo */
+  }
+}
+
+/* Media queries para dispositivos muy pequeños (pantallas menores de 480px) */
+@media (max-width: 480px) {
+  .how-to-buy-step {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .how-to-buy-header {
+      font-size: 1.8rem;
+      margin-bottom: 30px; /* Ajustar el margen inferior */
+  }
+
+  .how-to-buy-step img {
+      width: 80px;
+  }
+
+  .how-to-buy-step h3 {
+      font-size: 1rem;
+  }
+
+  .how-to-buy-step p {
+      font-size: 0.7rem;
+  }
+}

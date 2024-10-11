@@ -6,7 +6,7 @@ import './FlanFarming.css';
 import './BannerSection.css';
 import './HowToBuy.css';
 import './Separador.css';
-import WalletConfig from './WalletConfig'; // Importa el WalletConfig
+
 import RoadmapSection from './RoadmapSection'; // Importa el nuevo componente
 import AvatarGenerator from "./AvatarGenerator";
 import Music from "./Music";
@@ -85,7 +85,7 @@ const FlanPage = () => {
   }, []);
 
 return (
-  <WalletConfig> {/* Envolver toda la estructura con WalletConfig */}
+
   <div className="flan-page">
      {/* Nueva Sección: FlanPage */}
      <section className="flan-page-section">       
@@ -233,17 +233,7 @@ return (
     ))}
   </div>
   
-  {/* Iframe JUP */}
-  <div className="jup-iframe-container">
-    <iframe
-      src="https://jup.ag/swap/SOL-Fn5TpxS4H3jwV5jwD9HYoEDvxnNxDyEknwKaq2Mn3fbf"
-      className="jup-iframe"
-      title="Jupiter Swap"
-      sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    />
-  </div>
-</section>
+      </section>
 
 {/* Nueva Sección: Flan Generator */}
 <section className="flan-generator-section">       
@@ -251,12 +241,11 @@ return (
       </section>
 
 
- {/* Nueva Sección: Musica */}
-<section className="Music">       
-          <Music />
+{/* Nueva Sección: Musica */}
+<section className="Music">
+        <Music />
       </section>
     </div>
-    </WalletConfig>
   );
 };
 

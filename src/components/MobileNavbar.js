@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faNewspaper, faStore, faMap, faStoreAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faNewspaper, faStore, faMap, faStoreAlt, faSackDollar } from '@fortawesome/free-solid-svg-icons';
 import { faDiscord, faTelegram, faYoutube, faTwitter, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import './MobileNavbar.css';
 
@@ -44,7 +44,7 @@ const MobileNavbar = () => {
   <FontAwesomeIcon icon={faMap} /> Map
 </NavLink>
 <NavLink to="/flan" className="navbar-link mobile-flan-button" activeclassname="active" onClick={closeMenu}>
-  Flan
+<FontAwesomeIcon icon={faSackDollar} /> Flan
 </NavLink>
 
 

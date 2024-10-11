@@ -159,22 +159,22 @@
 .wallet-buttons {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  width: 100%;
 }
 
 .wallet-button {
   background-color: #ffd44f;
+  width: 90%; /* Ajustar el ancho al tamaño del contenedor */
   color: #333;
   font-family: 'Press Start 2P', cursive;
   margin-bottom: 10px;
-  padding: 12px 15px;
+  padding: 10px 12px;
   border: 3px solid #333;
   border-radius: 12px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   max-width: 100%;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -186,30 +186,74 @@
   background-color: #ffbf47;
 }
 
-/* Ajustes responsivos para móviles */
-@media (max-width: 480px) {
+/* Ajustes responsivos para móviles (pantallas menores a 768px) */
+@media (max-width: 768px) {
   .flannomics {
     flex-direction: column;
-    padding: 20px 10px;
-    height: auto;
+    justify-content: flex-start; /* Alinear hacia arriba */
+    height: auto; /* Ajustar la altura */
+    padding: 30px 10px;
   }
 
   .flannomics-left, .flannomics-right {
-    flex-basis: 100%;
-    margin-bottom: 15px;
+    flex-basis: 100%; /* Cada columna toma el 100% del ancho */
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 20px; /* Espaciado entre columnas */
   }
 
-  .flannomics-text-coin img {
-    width: 50px;
+  .flannomics-left {
+    order: 2; /* Cambiar el orden para que aparezca abajo en móviles */
+  }
+
+  .flannomics-right {
+    order: 1;
+  }
+
+  .flannomics-text-coin h2 {
+    font-size: 1.6rem;
+    max-width: 80%;
+    margin: 0 auto; /* Centrar en móviles */
   }
 
   .flannomics-description {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    width: 100%;
+    text-align: justify;
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .flannomics-ticker-flan, .flannomics-supply-total {
+    font-size: 1.8rem;
   }
 
   .wallet-button {
+    padding: 10px 8px;
     font-size: 0.7rem;
-    padding: 10px 5px;
-    width: 95%;
+  }
+}
+
+/* Ajustes para dispositivos muy pequeños (menores de 480px) */
+@media (max-width: 480px) {
+  .flannomics {
+    padding: 20px 5px;
+  }
+
+  .flannomics-left, .flannomics-right {
+    margin-bottom: 10px; /* Reducir el margen inferior */
+  }
+
+  .flannomics-text-coin h2 {
+    font-size: 1.4rem; /* Reducir el tamaño del encabezado */
+  }
+
+  .flannomics-description {
+    font-size: 0.9rem; /* Fuente más pequeña para dispositivos pequeños */
+    padding: 12px;
+  }
+
+  .wallet-button {
+    padding: 8px 5px;
+    font-size: 0.6rem;
   }
 }

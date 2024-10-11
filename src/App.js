@@ -14,6 +14,7 @@ import { SectionProvider } from './context/SectionContext'; // Importar el conte
 import './styles/App.css';
 import './components/Sidebar.css';
 
+
 // Lazy load para las secciones principales
 const Home = React.lazy(() => import('./components/Home'));
 const Dungeon = React.lazy(() => import('./components/Dungeon'));
@@ -49,7 +50,6 @@ function App() {
           {/* Incluir el Sidebar solo en la página Home */}
           <Routes>
           <Route path="/" element={<Sidebar />} /> {/* Esta puede causar conflicto */}
-          <Route path="/" element={<Home />} />     {/* Solo debe haber una ruta "/" */}
           </Routes>
 
           {/* Incluir el SecondaryNavbar para subrutas específicas */}

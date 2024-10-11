@@ -109,12 +109,46 @@
 /* ======================= Responsive Styles ======================= */
 
 /* Ajustes para móviles pequeños (máximo 375px de ancho) */
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .slimefun-section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding: 10px;
+    height: 100vh; /* Asegurar que ocupe toda la pantalla */
+    overflow: hidden; /* Evitar scroll */
+  }
+
+  .slimefun-text-content {
+    max-width: 85%;
+    padding: 10px;
+  }
+
+  .slimefun-title {
+    font-size: 1.8rem; /* Reducir ligeramente */
+  }
+
+  .slimefun-subtitle {
+    font-size: 1rem; /* Reducir ligeramente */
+  }
+
+  .slimefun-background-container {
+    width: 150%; /* Ajustar tamaño del fondo */
+  }
+
+  .slimefun-gif-container {
+    width: 50%;
+    bottom: 2%;
+    max-width: 300px; /* Ajustar tamaño máximo */
+  }
+}
+
+/* iPhone 12 Pro */
+@media (max-width: 390px) and (max-height: 844px) {
+  .slimefun-section {
+    padding: 10px;
+    height: 100vh; /* Mantener altura total */
+    overflow: hidden;
   }
 
   .slimefun-text-content {
@@ -123,37 +157,7 @@
   }
 
   .slimefun-title {
-    font-size: 2.2rem;
-  }
-
-  .slimefun-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .slimefun-background-container {
-    width: 180%; /* Ajustar tamaño del fondo */
-  }
-
-  .slimefun-gif-container {
-    width: 60%;
-    bottom: 5%;
-    max-width: 400px;
-  }
-}
-
-/* iPhone 12 Pro */
-@media (max-width: 390px) and (max-height: 844px) {
-  .slimefun-section {
-    padding: 10px;
-  }
-
-  .slimefun-text-content {
-    max-width: 95%;
-    padding: 20px;
-  }
-
-  .slimefun-title {
-    font-size: 2.2rem;
+    font-size: 2rem; /* Ajustar tamaño */
   }
 
   .slimefun-subtitle {
@@ -161,53 +165,63 @@
   }
 
   .slimefun-background-container {
-    width: 180%;
+    width: 160%; /* Reducir el tamaño del fondo */
   }
 
   .slimefun-gif-container {
-    width: 50%;
-    bottom: 5%;
-    max-width: 350px;
+    width: 45%;
+    bottom: 2%;
+    max-width: 300px;
   }
 }
 
 /* Ajustes para tabletas (máximo 768px de ancho) */
 @media (max-width: 768px) {
   .slimefun-section {
-    padding: 20px;
+    padding: 0px;
+    height: 100vh;
+    overflow: hidden;
   }
 
   .slimefun-text-content {
-    max-width: 85%;
-    padding: 15px;
-    margin-bottom: 20px;
+    max-width: 100%;
+    max-height: 95%;
+    padding: 0px;
+    padding-left: 10px;
   }
 
   .slimefun-title {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Ajustar tamaño */
   }
 
   .slimefun-subtitle {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+  }
+
+  .slimefun-description {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    line-height: 1.6;
   }
 
   .slimefun-background-container {
-    width: 140%;
+    width: 130%; /* Ajustar tamaño */
   }
 
   .slimefun-gif-container {
-    width: 70%;
-    bottom: 10%;
+    width: 60%;
+    bottom: 5%;
   }
 }
 
 /* Ajustes para resoluciones intermedias */
 @media (max-width: 1024px) {
   .slimefun-section {
-    padding: 20px;
+    padding: 15px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh; /* Asegurar que el contenido ocupe todo el alto */
   }
 
   .slimefun-text-content {
@@ -215,16 +229,16 @@
   }
 
   .slimefun-background-container {
-    width: 120%;
+    width: 110%;
   }
 
   .slimefun-gif-container {
-    width: 60%;
-    bottom: 10%;
+    width: 55%;
+    bottom: 5%;
   }
 
   .slimefun-gif {
-    max-width: 500px;
+    max-width: 450px;
   }
 }
 
@@ -234,6 +248,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 20px;
   }
 
   .slimefun-text-content {
@@ -245,12 +260,12 @@
   }
 
   .slimefun-gif-container {
-    width: 30%; /* Ajustar tamaño para monitores grandes */
-    bottom: 5%;
-    right: 5%; /* Posicionado en la esquina */
+    width: 30%; /* Ajustar tamaño */
+    bottom: 2%;
+    right: 5%;
   }
 
   .slimefun-gif {
-    max-width: 700px;
+    max-width: 600px;
   }
 }

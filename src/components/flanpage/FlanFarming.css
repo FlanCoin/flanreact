@@ -176,17 +176,14 @@
 @media (max-width: 1024px) {
   .farming-content-columns {
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    width: 95%;
+    padding: 15px;
+    gap: 15px;
   }
 
-  .farming-video-container,
-  .farming-description {
+  .farming-video-container, .farming-description {
     width: 90%;
-  }
-
-  .farming-description {
-    text-align: center;
+    max-width: 600px; /* Ancho máximo para evitar overflow */
   }
 
   .farming-content h2 {
@@ -194,34 +191,115 @@
   }
 }
 
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
-  .farming-video-container {
-    width: 80%;
+/* Ajustes específicos para dispositivos con un ancho máximo de 320px */
+@media (max-width: 320px) {
+  .flan-farming {
+    padding: 15px 10px; /* Reducir el padding para asegurar espacio suficiente */
+    gap: 15px; /* Reducir la separación entre elementos */
+    min-height: auto; /* Permitir que el contenedor crezca dinámicamente */
+    height: auto; /* Asegurar que la altura se ajuste al contenido */
   }
 
-  .farming-content h2 {
-    font-size: 2.5rem;
+  .farming-content-columns {
+    width: 100%;
+    padding: 8px; /* Reducir padding interno */
+    gap: 5px; /* Reducir el gap entre elementos */
+    flex-direction: column; /* Asegurar disposición en columna */
+  }
+
+  .farming-video-container {
+    width: 100%;
+    max-width: 250px; /* Limitar el tamaño máximo del video */
+    margin-bottom: 10px; /* Reducir margen inferior */
+  }
+
+  .farming-video {
+    border: 2px solid #FFD44F; /* Borde más pequeño */
+    border-radius: 10px; /* Reducción del radio del borde */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4); /* Reducir la sombra */
   }
 
   .farming-description {
-    font-size: 0.85rem;
+    width: 100%;
+    max-width: 250px; /* Limitar el ancho máximo */
+    font-size: 0.65rem; /* Fuente más pequeña para evitar desbordamiento */
+    padding: 8px; /* Reducir padding interno */
+    line-height: 1.2; /* Ajustar la altura de línea */
+    border-radius: 10px; /* Reducción del radio del borde */
+    border: 2px solid #FFD44F; /* Borde más pequeño */
+  }
+
+  .farming-footer {
+    font-size: 0.6rem;
+    padding: 5px 8px; /* Reducir el padding interno */
+    top: 0px; /* Eliminar la posición relativa superior para evitar cortes */
+    margin: 5px auto; /* Centrar y reducir el margen */
+    position: relative;
+    width: 95%; /* Asegurar que no haya overflow lateral */
+  }
+
+  .farming-content h2 {
+    font-size: 1.4rem; /* Tamaño del encabezado más pequeño */
+    margin-bottom: 5px; /* Reducir el margen inferior */
+    line-height: 1.1; /* Ajustar la altura de línea */
+  }
+
+  .farming-content p {
+    font-size: 0.7rem; /* Reducir fuente del párrafo */
+    margin-top: 5px; /* Reducir margen superior */
   }
 }
 
-/* Ajustes para pantallas muy pequeñas */
+
+/* Ajustes para pantallas pequeñas y dispositivos con ancho máximo de 480px */
 @media (max-width: 480px) {
   .farming-content h2 {
-    font-size: 2rem;
+    font-size: 1.8rem; /* Reducir tamaño del encabezado */
+    line-height: 1.2;
+  }
+
+  .farming-content-columns {
+    width: 100%;
+    padding: 5px;
+    gap: 8px; /* Ajuste mínimo de espacio */
+  }
+
+  .farming-video-container {
+    width: 100%; /* Ajuste al 100% del contenedor */
+    max-width: 320px; /* Ajuste máximo para evitar desbordamiento */
   }
 
   .farming-description {
-    font-size: 0.8rem;
+    width: 100%;
+    font-size: 0.7rem; /* Fuente más pequeña */
+    padding: 10px;
   }
 
-
   .farming-footer {
-    top: -60px; /* Ajuste adicional para pantallas móviles */
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+    padding: 8px 10px;
+    margin-top: 5px; /* Reducir margen superior */
+  }
+}
+
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 768px) {
+  .farming-content-columns {
+    flex-direction: column;
+    width: 95%; /* Asegurar que no exceda el ancho */
+    padding: 10px;
+    gap: 10px; /* Reducir gap para evitar saltos */
+  }
+
+  .farming-video-container {
+    width: 100%;
+    max-width: 380px; /* Ajuste para pantallas pequeñas */
+    margin-bottom: 10px;
+  }
+
+  .farming-description {
+    width: 100%;
+    padding: 15px 10px; /* Ajustar el padding */
   }
 }

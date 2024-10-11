@@ -3,6 +3,18 @@ import { useNavigate } from 'react-router-dom'; // Importar useNavigate para la 
 import './Crates.css';
 import llaveIcon from '../assets/llave.png'; // Importa la imagen desde src/assets
 
+// Importa las imágenes de los emojis
+import coronaIcon from '../assets/emojis/corona.png';
+import dineroIcon from '../assets/emojis/dinero.png';
+import dosespadasIcon from '../assets/emojis/dosespadas.png';
+import escudoIcon from '../assets/emojis/escudo.png';
+import estrellaIcon from '../assets/emojis/estrella.png';
+import inglesaIcon from '../assets/emojis/inglesa.png';
+import llaveEmote from '../assets/emojis/llave.png';
+import martillosIcon from '../assets/emojis/martillos.png';
+import puñalIcon from '../assets/emojis/puñal.png';
+import tridenteIcon from '../assets/emojis/tridente.png';
+
 const createParticle = () => {
   const particle = document.createElement('div');
   particle.className = 'particle';
@@ -70,34 +82,34 @@ const Crates = () => {
                   <p>
                     {index === 0 && (
                       <>
-                        ⚔️ Armaduras comunes<br />
-                        🔧 Herramientas útiles<br />
-                        🔑 Objetos de apoyo<br />
-                        💰 Pequeñas cantidades de $FLAN
+                        <img src={escudoIcon} alt="escudo" className="emoji-icon" /> Armaduras comunes<br />
+                        <img src={martillosIcon} alt="martillos" className="emoji-icon" /> Herramientas útiles<br />
+                        <img src={llaveEmote} alt="llave" className="emoji-icon" /> Objetos de apoyo<br />
+                        <img src={dineroIcon} alt="dinero" className="emoji-icon" /> Pequeñas cantidades de $FLAN
                       </>
                     )}
                     {index === 1 && (
                       <>
-                        🛡️ Armaduras raras<br />
-                        ⚒️ Herramientas mejoradas<br />
-                        🌟 Objetos especiales<br />
-                        💰 Cantidades moderadas de $FLAN
+                        <img src={escudoIcon} alt="escudo" className="emoji-icon" /> Armaduras raras<br />
+                        <img src={martillosIcon} alt="martillos" className="emoji-icon" /> Herramientas mejoradas<br />
+                        <img src={estrellaIcon} alt="estrella" className="emoji-icon" /> Objetos especiales<br />
+                        <img src={dineroIcon} alt="dinero" className="emoji-icon" /> Cantidades moderadas de $FLAN
                       </>
                     )}
                     {index === 2 && (
                       <>
-                        👑 Armaduras míticas<br />
-                        🗡️ Armas especiales<br />
-                        ⚔️ Objetos legendarios<br />
-                        💰 Grandes cantidades de $FLAN
+                        <img src={coronaIcon} alt="corona" className="emoji-icon" /> Armaduras míticas<br />
+                        <img src={puñalIcon} alt="puñal" className="emoji-icon" /> Armas especiales<br />
+                        <img src={dosespadasIcon} alt="dosespadas" className="emoji-icon" /> Objetos legendarios<br />
+                        <img src={dineroIcon} alt="dinero" className="emoji-icon" /> Grandes cantidades de $FLAN
                       </>
                     )}
                     {index === 3 && (
                       <>
-                        🔱 Objetos divinos<br />
-                        🌌 Armas ultra legendarias<br />
-                        ⚒️ Equipamiento único<br />
-                        💰 Cantidades masivas de $FLAN
+                        <img src={tridenteIcon} alt="tridente" className="emoji-icon" /> Objetos divinos<br />
+                        <img src={dosespadasIcon} alt="dosespadas" className="emoji-icon" /> Armas ultra legendarias<br />
+                        <img src={inglesaIcon} alt="inglesa" className="emoji-icon" /> Equipamiento único<br />
+                        <img src={dineroIcon} alt="dinero" className="emoji-icon" /> Cantidades masivas de $FLAN
                       </>
                     )}
                   </p>

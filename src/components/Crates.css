@@ -296,6 +296,13 @@
   }
 }
 
+.crate-card-back .emoji-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
 
 /* Media Queries */
 @media (max-width: 1024px) {

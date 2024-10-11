@@ -20,7 +20,6 @@ const SlimeFun = () => {
           <li>¡Nuevas recetas y herramientas increíbles!</li>
           <li>Automatiza, explora y construye como nunca antes.</li>
           <li>Personaliza tu mundo con bloques únicos.</li>
-          <li>Descubre biomas y dimensiones completamente nuevos.</li>
         </ul>
       </div>
 
