@@ -1,7 +1,7 @@
 /* Estilo base para el separador */
 .separador-section {
   position: absolute;
-  top: 727vh; /* Ajusta la posición según sea necesario */
+  top: 823vh; /* Ajusta la posición según sea necesario */
   left: -5%;
   width: 110%;
   height: 20vw;
