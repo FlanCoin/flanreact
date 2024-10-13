@@ -6,7 +6,7 @@ import './FlanFarming.css';
 import './BannerSection.css';
 import './HowToBuy.css';
 import './Separador.css';
-
+import StaffCarousel from './StaffCarousel';
 import RoadmapSection from './RoadmapSection'; // Importa el nuevo componente
 import AvatarGenerator from "./AvatarGenerator";
 import Music from "./Music";
@@ -122,7 +122,7 @@ return (
         </div>
       </section>
 
-      
+        <StaffCarousel /> {/* Coloca la nueva sección aquí */}
 
 {/* Flannomics Section */}
 <section className="flannomics">

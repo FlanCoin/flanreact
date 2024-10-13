@@ -9,6 +9,7 @@
     background-size: 400% 400%; /* Tamaño grande para la animación */
     animation: backgroundScroll 15s ease-in-out infinite; /* Animación del fondo */
     background-position: top; /* Posición inicial en la parte superior */
+    
 }
 
 .roadmap-section::before {

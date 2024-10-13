@@ -1,3 +1,5 @@
+
+
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fredoka+One&family=Dancing+Script&family=Nerko+One&display=swap');
 
@@ -158,21 +160,31 @@
   height: auto;
   opacity: 0.8;
   animation: moveClouds 15s linear infinite;
+  overflow-x: hidden; /* Prevenir overflow horizontal */
 }
 
 /* Keyframes para el movimiento de las nubes rápidas */
 @keyframes moveClouds {
   0% {
     transform: translateX(-100vw);
+    opacity: 0; /* Las nubes comienzan invisibles fuera del viewport */
+  }
+  10% {
+    opacity: 0.8; /* Aparecen gradualmente al entrar en el viewport */
+  }
+  80% {
+    opacity: 0.8; /* Mantienen su opacidad mientras se mueven */
   }
   100% {
-    transform: translateX(100vw);
+    transform: translateX(33vw);
+    opacity: 0; /* Se difuminan antes de desaparecer al final del recorrido */
   }
 }
 
 /* Nubes rápidas */
 .cloud1, .cloud2, .cloud3, .cloud4 {
   z-index: 1;
+  overflow-x: hidden; /* Prevenir overflow horizontal */
 }
 
 .cloud1 {
@@ -207,6 +219,7 @@
   margin-top: 0vh; /* Ajusta el margen superior para posicionarlo dentro de la sección */
   margin-left: 0vw;
   z-index: 0;
+  overflow-x: hidden; /* Prevenir overflow horizontal */
 }
 
 /* Posiciones específicas de las nuevas nubes */
