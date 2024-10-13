@@ -115,6 +115,11 @@ body {
   width: 70%;
   max-width: 700px;
   text-align: center;
+  min-height: 120px; /* Fija la altura mínima del contenedor */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: height 0.3s ease; /* Transición suave en caso de cambio de altura */
 }
 
 .skin-description h3 {
