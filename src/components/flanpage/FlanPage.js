@@ -50,6 +50,7 @@ const FlanPage = () => {
 
     return () => clearInterval(intervalId);
   }, []);
+  
 
   const addPlusSevenEffect = () => {
     const newElement = {

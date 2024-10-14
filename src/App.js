@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoadingScreen from './components/LoadingScreen'; // Importar el componente de carga
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import MobileNavbar from './components/MobileNavbar';
 import Footer from './components/Footer';
@@ -9,15 +9,12 @@ import Monturas from './components/marketplace/monturas/Monturas';
 import Construcciones from './components/marketplace/construcciones/Construcciones';
 import Mascotas from './components/marketplace/mascotas/Mascotas';
 import SecondaryNavbar from './components/marketplace/SecondaryNavbar';
-import ScrollNavigator from './components/ScrollNavigator';
-import { SectionProvider } from './context/SectionContext'; // Importar el contexto del SectionProvider
-
+import { SectionProvider } from './context/SectionContext';
 import './styles/App.css';
 import './components/Sidebar.css';
 
-
 // Lazy load para las secciones principales
-const Home = React.lazy(() => import('./components/Home'));
+const Lobby = React.lazy(() => import('./components/Lobby'));
 const Dungeon = React.lazy(() => import('./components/Dungeon'));
 const SlimeFun = React.lazy(() => import('./components/SlimeFun'));
 const Crates = React.lazy(() => import('./components/Crates'));
@@ -26,8 +23,26 @@ const Play = React.lazy(() => import('./components/Play'));
 const FlanPage = React.lazy(() => import('./components/flanpage/FlanPage'));
 const NewsSection = React.lazy(() => import('./components/news/NewsSection'));
 const Map = React.lazy(() => import('./components/map/Map'));
-const Store = React.lazy(() => import('./components/store/Store')); // Mantener el Store como Lazy Load
+const Store = React.lazy(() => import('./components/store/Store'));
 const Marketplace = React.lazy(() => import('./components/marketplace/Marketplace'));
+
+// Componente para manejar el scroll hacia arriba en cada cambio de ruta
+const ScrollToTop = () => {
+  const { pathname } = useLocation();  // Usamos el hook dentro del Router
+
+  useEffect(() => {
+    // Forzar el scroll al principio de la página cada vez que cambie la ruta
+    window.scrollTo(0, 0);
+    
+    // Forzar la recarga de las fuentes cuando cambie de ruta
+    document.fonts.ready.then(() => {
+      document.body.style.fontFamily = '"YourDefaultFont", sans-serif';
+    });
+
+  }, [pathname]);
+
+  return null;
+};
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -36,25 +51,26 @@ function App() {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1282);
     };
-    handleResize(); // Ejecutar la primera vez para comprobar el tamaño inicial
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
     <Router>
+      <ScrollToTop /> {/* Este componente asegura que el scroll se restablezca al cambiar de ruta */}
       <LoadingScreen />
-      <SectionProvider> {/* Envolver toda la aplicación en el SectionProvider */}
+      <SectionProvider>
         <div className="App">
-          {/* Mostrar el navbar correspondiente según el tamaño de la pantalla */}
+          {/* Navbar responsivo */}
           {isMobile ? <MobileNavbar /> : <Navbar />}
 
-          {/* Incluir el Sidebar solo en la página Home */}
+          {/* Sidebar solo en Flancraft */}
           <Routes>
-          <Route path="/" element={<Sidebar />} /> {/* Esta puede causar conflicto */}
+            <Route path="/flancraft" element={<Sidebar />} />
           </Routes>
 
-          {/* Incluir el SecondaryNavbar para subrutas específicas */}
+          {/* Secondary Navbar para subrutas */}
           <Routes>
             <Route path="/marketplace/*" element={<SecondaryNavbar />} />
             <Route path="/monturas" element={<SecondaryNavbar />} />
@@ -62,17 +78,15 @@ function App() {
             <Route path="/mascotas" element={<SecondaryNavbar />} />
           </Routes>
 
-          {/* Definir las rutas principales */}
+          {/* Rutas principales */}
           <Suspense fallback={<div>Cargando...</div>}>
             <Routes>
-              {/* Rutas con ScrollNavigator activo */}
               <Route
-                path="/"
+                path="/flancraft"
                 element={
-                  <div className="main-sections-container"> {/* Contenedor principal con scroll controlado */}
-                    <ScrollNavigator /> {/* Integrar el ScrollNavigator solo en la ruta principal */}
-                    <div id="home" className="section">
-                      <Home />
+                  <div className="flancraft-container">
+                    <div id="lobby" className="section">
+                      <Lobby />
                     </div>
                     <div id="dungeon" className="section">
                       <Dungeon />
@@ -93,20 +107,22 @@ function App() {
                 }
               />
 
-              {/* Rutas adicionales fuera del ScrollNavigator */}
-              <Route path="/flan" element={<FlanPage />} />
+              {/* Ruta raíz ahora apunta a la página de Flan */}
+              <Route path="/" element={<FlanPage />} />
+
+              {/* Rutas adicionales */}
               <Route path="/news" element={<NewsSection />} />
-              <Route path="/store" element={<Store />} /> {/* Ruta para la tienda */}
+              <Route path="/store" element={<Store />} />
               <Route path="/map" element={<Map />} />
               <Route path="/marketplace" element={<Marketplace />} />
               <Route path="/construcciones" element={<Construcciones />} />
               <Route path="/monturas" element={<Monturas />} />
               <Route path="/mascotas" element={<Mascotas />} />
-              <Route path="*" element={<div>Página no encontrada</div>} /> {/* Ruta de catch-all */}
+              <Route path="*" element={<div>Página no encontrada</div>} />
             </Routes>
           </Suspense>
 
-          {/* Pie de página en todas las secciones */}
+          {/* Pie de página */}
           <Footer />
         </div>
       </SectionProvider>

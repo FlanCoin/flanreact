@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback, useContext, useRef } from 'react';
 import { SectionContext } from '../context/SectionContext';
 import transitionImage from '../assets/file-rIQPEjtGRYtlrryt1B3BTjxX.png';
 
-const sections = ['home', 'dungeon', 'slimefun', 'crates', 'quests', 'play'];
+const sections = ['lobby', 'dungeon', 'slimefun', 'crates', 'quests', 'play'];
 
 const ScrollNavigator = () => {
   const { setActiveSection } = useContext(SectionContext);

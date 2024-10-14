@@ -35,14 +35,17 @@ html {
 }
 .main-sections-container {
   scroll-snap-type: y mandatory; /* Controla el desplazamiento vertical */
-  overflow-y: hidden; /* Evitar el scroll nativo */
-  height: 100vh;
+  overflow-y: auto; /* Evitar el scroll nativo */
+  height: auto;
   transition: all 0.6s ease-out; /* Suavizar la transición global */
 }
-
+.flancraft-container {
+  overflow: auto;
+  scroll-behavior: smooth;
+}
 .section {
   scroll-snap-align: start; /* Ajuste para anclar cada sección */
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import background from '../assets/background.gif';
 import flanespada from '../assets/flanespada.gif';
 import logo from '../assets/logo.png';
-import './Home.css';
+import './Lobby.css';
 
 const Home = () => {
   // Estado para manejar si la IP fue copiada

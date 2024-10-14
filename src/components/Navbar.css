@@ -88,18 +88,14 @@
 }
 
 .desktop-flan-button {
-  background: url('/src/assets/flannav.png') no-repeat;
-  background-color: #339BCD;
+  background: url('/src/assets/flannav.png') no-repeat center center;
+  background-size: cover; /* Asegura que la imagen ocupe todo el botón */
   color: #412624;
   font-size: 16px;
-  padding: 6px 25px;
+  padding: 6px 18px;
   border: 2px solid #412624;
-  font-family: 'Montserrat', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }
+
 
 .desktop-marketplace-button {
   background-color: #A7EB64;
@@ -198,7 +194,11 @@
   background-color: #725B4E;
   color: white;
 }
+.mobile-store-button.active,
+.mobile-store-button.active:hover {
 
+  color: white;
+}
 /* Estilo para los enlaces activos en el Desktop Navbar */
 .desktop-navbar-link.active,
 .desktop-navbar-link.active:hover {
@@ -210,7 +210,7 @@
 /* Estilo para el enlace activo específico en el botón de Store */
 .desktop-store-button.active,
 .desktop-store-button.active:hover {
-  background: #725B4E;
+
   color: white;
 }
 
@@ -224,8 +224,7 @@
 /* Estilo para el enlace activo específico en el botón de Flan */
 .desktop-flan-button.active,
 .desktop-flan-button.active:hover {
-  background-color: #0077B6;
-  color: rgb(69, 70, 64);
+  color: white;
 }
 
 
