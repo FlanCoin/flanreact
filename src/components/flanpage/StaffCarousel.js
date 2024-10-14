@@ -5,11 +5,11 @@ import './StaffCarousel.css';
 const selectSoundPath = process.env.PUBLIC_URL + '/sounds/select.wav';
 
 const skins = [
-  { name: 'Paxino', description: 'Leader of the team, tireless explorer', imageUrl: 'https://i.ibb.co/7jSsdcK/novaskin-1.gif' },
-  { name: 'UntalCali', description: 'Brave developer, always ready for adventure', imageUrl: 'https://i.ibb.co/0XssXqc/novaskin-2.gif' },
-  { name: 'BLADErexa', description: 'Master of servers, lightning-fast', imageUrl: 'https://i.ibb.co/CWXg5TX/novaskin-5.gif' },
-  { name: 'MrCrystalchemist', description: 'Explosive designer, ideas bursting with creativity', imageUrl: 'https://i.ibb.co/5YkK7SR/novaskin-3.gif' },
-  { name: 'laPupu', description: 'Illustrator and captain of the crew', imageUrl: 'https://i.ibb.co/KDmpN1W/novaskin-4.gif' },
+  { name: 'Paxino', description: 'Mastermind creator and fearless founder, leading the way!', imageUrl: 'https://i.ibb.co/7jSsdcK/novaskin-1.gif' },
+  { name: 'UntalCali', description: 'Boss-level admin, keeping everything in check like a pro.', imageUrl: 'https://i.ibb.co/0XssXqc/novaskin-2.gif' },
+  { name: 'BLADErexa', description: 'Born to build! The ultimate constructor of epic stuff.', imageUrl: 'https://i.ibb.co/CWXg5TX/novaskin-5.gif' },
+  { name: 'MrCrystalchemist', description: 'Code wizard, designer, and developer with explosive creativity.', imageUrl: 'https://i.ibb.co/5YkK7SR/novaskin-3.gif' },
+  { name: 'laPupu', description: 'Project’s illustrator and creative captain, making everything look awesome.', imageUrl: 'https://i.ibb.co/KDmpN1W/novaskin-4.gif' },
 ];
 
 const StaffCarousel = () => {
