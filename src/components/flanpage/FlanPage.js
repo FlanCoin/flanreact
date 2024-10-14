@@ -85,6 +85,22 @@ const FlanPage = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    window.Jupiter.init({
+      displayMode: "integrated",
+      integratedTargetId: "integrated-terminal", // ID del div donde renderizar el terminal
+      endpoint: "https://api.mainnet-beta.solana.com", // Endpoint de Solana
+      formProps: {
+        fixedOutputMint: true,
+        initialInputMint: "So11111111111111111111111111111111111111112", // SOL Token
+        initialOutputMint: "Fn5TpxS4H3jwV5jwD9HYoEDvxnNxDyEknwKaq2Mn3fbf", // FLAN Token
+      },
+      strictTokenList: false,
+    });
+  }, []);
+  
+  
+
 return (
 
   <div className="flan-page">
@@ -233,7 +249,8 @@ return (
       </div>
     ))}
   </div>
-  
+{/* Jupiter Integration */}
+        <div id="integrated-terminal" className="jupiter-widget-container"></div>
       </section>
 
 {/* Nueva Sección: Flan Generator */}
