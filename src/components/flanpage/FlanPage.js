@@ -89,7 +89,7 @@ const FlanPage = () => {
     window.Jupiter.init({
       displayMode: "integrated",
       integratedTargetId: "integrated-terminal", // ID del div donde renderizar el terminal
-      endpoint: "https://api.mainnet-beta.solana.com", // Endpoint de Solana
+      endpoint: "https://mainnet.helius-rpc.com/?api-key=ebbbf1d6-314d-40fd-8100-726b9fb829b8", // Endpoint de Solana
       formProps: {
         fixedOutputMint: true,
         initialInputMint: "So11111111111111111111111111111111111111112", // SOL Token
