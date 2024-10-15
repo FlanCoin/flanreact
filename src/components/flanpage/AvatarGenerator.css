@@ -19,21 +19,9 @@
   margin-bottom: 25px;
   color: #FFD700;
   text-shadow: 2px 2px #000, 4px 4px #00796b;
-  animation: pulse 4s infinite alternate;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-    color: #FFCC00;
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+
 
 .category-container {
   display: flex;

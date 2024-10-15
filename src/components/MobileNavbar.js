@@ -41,9 +41,14 @@ const MobileNavbar = () => {
         <NavLink to="/store" className="navbar-link mobile-store-button" activeclassname="active" onClick={closeMenu}>
           <FontAwesomeIcon icon={faStore} /> Store
         </NavLink>
-        <NavLink to="/map" className="navbar-link" activeclassname="active" onClick={closeMenu}>
+        <a
+          href="http://play.flancraft.com:8123"
+          className="navbar-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FontAwesomeIcon icon={faMap} /> Map
-        </NavLink>
+        </a>
         <NavLink to="/flancraft" className="navbar-link mobile-flan-button" activeclassname="active" onClick={closeMenu}>
           <FontAwesomeIcon icon={faGamepad} /> Flancraft {/* Actualizado a "Lobby" */}
         </NavLink>
